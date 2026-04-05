@@ -4,122 +4,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Mí | Claudio Ariza - Lógica y Estrategia</title>
+    <title>Sobre Mí | Claudio Ariza — Consultor de Soluciones Tecnológicas</title>
     <meta name="description"
-        content="Conoce a Claudio Ariza: Estudiante de Matemáticas en la UNAM, desarrollador de Axioma ERP y estratega digital. Soluciones de software con rigor analítico.">
+        content="Conozco de primera mano la complejidad operativa de las empresas mexicanas. Construí Axioma ERP para manufactura y distribución, y ahora aplico esa experiencia a tu negocio.">
 
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
+        body { font-family: 'Inter', sans-serif; }
 
-        .tech-gradient {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        }
+        .tech-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
 
-        .accent-glow:hover {
-            box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
-        }
+        .accent-glow:hover { box-shadow: 0 0 20px rgba(37, 99, 235, 0.4); }
 
         .hexagon-bg {
             background-color: #f8fafc;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23e2e8f0' fill-opacity='0.4' d='M12 1L3 5v14l9 4 9-4V5l-9-4zm7 17.21l-7 3.11-7-3.11V6.29l7-3.11 7 3.11v11.92z'/%3E%3C/svg%3E");
         }
+
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.6; }
+            50%       { opacity: 1; }
+        }
+        .pulse-slow { animation: pulse-slow 3s ease-in-out infinite; }
     </style>
 </head>
 
-<body class="bg-slate-50 text-slate-900 antialiased">
+<body class="bg-slate-50 text-slate-900 antialiased overflow-x-hidden">
 
-    <!-- Header / Nav -->
-    <header class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
-        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-xl font-extrabold tracking-tighter text-blue-600 uppercase">
-                <a href="index.html">CLAUDIO<span class="text-slate-900">ARIZA</span></a>
-            </div>
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
-                <a href="index.html" class="hover:text-blue-600 transition">Inicio</a>
-                <a href="about.html" class="text-blue-600 font-bold border-b-2 border-blue-600">Sobre Mí</a>
+    <!-- ═══════════════════════════════════════════
+         HEADER / NAV
+    ════════════════════════════════════════════ -->
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
+
+            <!-- Logo -->
+            <a href="index.html" class="text-lg sm:text-xl font-extrabold tracking-tighter text-blue-600 uppercase flex-shrink-0">
+                CLAUDIO<span class="text-slate-900">ARIZA</span>
+            </a>
+
+            <!-- Desktop links -->
+            <div class="hidden lg:flex space-x-8 text-sm font-medium text-slate-600">
+                <a href="index.html"          class="hover:text-blue-600 transition">Inicio</a>
+                <a href="index.html#soluciones" class="hover:text-blue-600 transition">Soluciones</a>
+                <a href="about.html"          class="text-blue-600 font-bold border-b-2 border-blue-600 pb-0.5">Sobre Mí</a>
                 <a href="index.html#contacto" class="hover:text-blue-600 transition">Contacto</a>
             </div>
-            <a href="https://wa.me/5613591740"
-                class="bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-semibold accent-glow transition-all hover:bg-blue-700">
-                Cotizar Proyecto
-            </a>
+
+            <!-- Right side -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/5613591740" id="nav-cta"
+                   class="bg-blue-600 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold accent-glow transition-all hover:bg-blue-700 whitespace-nowrap">
+                    <span class="hidden sm:inline">Agendar consultoría gratis</span>
+                    <span class="sm:hidden">Agendar</span>
+                </a>
+
+                <!-- Hamburger -->
+                <button id="menu-toggle" aria-label="Abrir menú" aria-expanded="false"
+                        class="lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-slate-100 transition">
+                    <span class="hamburger-line block w-5 h-0.5 bg-slate-700 mb-1 transition-all duration-300"></span>
+                    <span class="hamburger-line block w-5 h-0.5 bg-slate-700 mb-1 transition-all duration-300"></span>
+                    <span class="hamburger-line block w-5 h-0.5 bg-slate-700 transition-all duration-300"></span>
+                </button>
+            </div>
         </nav>
+
+        <!-- Mobile dropdown -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-slate-100 shadow-lg">
+            <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col space-y-1">
+                <a href="index.html"            class="px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition">Inicio</a>
+                <a href="index.html#soluciones" onclick="closeMobileMenu()" class="px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition">Soluciones</a>
+                <a href="about.html"            class="px-4 py-3 rounded-xl text-sm font-semibold text-blue-600 font-bold bg-blue-50 rounded-xl">Sobre Mí</a>
+                <a href="index.html#contacto"   onclick="closeMobileMenu()" class="px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition">Contacto</a>
+                <div class="pt-2 border-t border-slate-100">
+                    <a href="index.html#contacto"
+                       class="block w-full py-3 bg-blue-600 text-white rounded-xl font-bold text-center hover:bg-blue-700 transition text-sm">
+                        Agendar consultoría de 15 min
+                    </a>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-16 px-6 lg:pt-48 lg:pb-24 hexagon-bg">
+    <!-- ═══════════════════════════════════════════
+         HERO SECTION
+    ════════════════════════════════════════════ -->
+    <section class="pt-28 pb-12 px-4 sm:px-6 md:pt-36 lg:pt-48 lg:pb-24 hexagon-bg">
         <div class="max-w-7xl mx-auto flex flex-col items-center text-center">
-            <div class="relative mb-10">
-                <div class="absolute -inset-1.5 bg-blue-600 rounded-full blur opacity-25"></div>
-                <!-- Placeholder para foto de perfil -->
-                <div class="relative w-40 h-40 md:w-48 md:h-48 rounded-full bg-slate-200 border-4 border-white shadow-xl overflow-hidden flex items-center justify-center text-slate-400">
-                   <img src="ProfilePhoto.jpg" alt="Claudio Ariza" class="object-cover w-full h-full"> 
+            <!-- Photo -->
+            <div class="relative mb-8">
+                <div class="absolute -inset-3 bg-blue-600 rounded-full blur-md opacity-20 pulse-slow"></div>
+                <div class="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full border-4 border-white shadow-2xl overflow-hidden">
+                    <img src="ProfilePhoto.jpg" alt="Claudio Ariza — Consultor de Soluciones Tecnológicas" class="object-cover w-full h-full">
                 </div>
             </div>
-            <span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full">
-                Perfil del Desarrollador
+
+            <span class="inline-block px-3 py-1.5 mb-5 text-xs font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full">
+                Consultor de Soluciones Tecnológicas · CDMX
             </span>
-            <h1 class="text-4xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight max-w-4xl">
-                Más que código: <span class="text-blue-600 text-gradient">Lógica y Estrategia</span> para tu Negocio
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-5 tracking-tight max-w-4xl">
+                Más que código: <span class="text-blue-600">Lógica y Estrategia</span><br class="hidden md:block"> para tu Negocio
             </h1>
-            <p class="text-xl text-slate-600 max-w-2xl leading-relaxed">
-                Entiendo el desarrollo web como una partida de ajedrez donde cada movimiento tiene un propósito: la rentabilidad de tu empresa.
+            <p class="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed">
+                Entiendo el desarrollo de software como una palanca de crecimiento empresarial.
+                Mi objetivo no es entregarte un sistema, sino <strong class="text-slate-800">eliminar el cuello de botella que frena tu operación.</strong>
             </p>
         </div>
     </section>
 
-    <!-- Mi Historia / Enfoque Analítico -->
-    <section class="py-20 bg-white px-6">
+    <!-- ═══════════════════════════════════════════
+         MI HISTORIA / ENFOQUE
+    ════════════════════════════════════════════ -->
+    <section class="py-12 md:py-20 bg-white px-4 sm:px-6">
         <div class="max-w-5xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-16 items-start">
+            <!-- Stack on mobile, side-by-side on lg -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+                <!-- Text -->
                 <div>
-                    <h2 class="text-2xl md:text-3xl font-extrabold mb-6 flex items-center gap-3">
-                        <span class="w-8 h-1 bg-blue-600 rounded-full"></span>
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold mb-5 flex items-center gap-3">
+                        <span class="w-8 h-1 bg-blue-600 rounded-full flex-shrink-0"></span>
                         Mi formación y trasfondo
                     </h2>
-                    <div class="space-y-6 text-slate-600 leading-relaxed text-lg">
+                    <div class="space-y-5 text-slate-600 leading-relaxed text-base sm:text-lg">
                         <p>
-                            Soy estudiante de <span class="font-semibold text-slate-900">Matemáticas en la UNAM</span>. Esta formación me otorga una ventaja competitiva inmediata: mi cerebro está entrenado para la abstracción, el análisis profundo y la resolución de problemas lógicos complejos antes de tocar una sola tecla.
+                            Estudio <span class="font-semibold text-slate-900">Matemáticas en la UNAM</span>.
+                            Esta formación me da una ventaja concreta: antes de escribir una sola línea, modelo
+                            el problema con rigor analítico, identifico los datos críticos y diseño la arquitectura
+                            mínima que resuelve el máximo número de problemas operativos.
                         </p>
                         <p>
-                            No me limito a escribir código; estructuro arquitecturas que funcionan bajo presión. Mi mayor hito es <span class="font-semibold text-slate-900 italic">Axioma</span>, un sistema ERP integral que diseñé y construí para PyMEs mexicanas, resolviendo problemas reales de inventarios, contabilidad y operación que el software genérico no cubría.
+                            Mi proyecto más ambicioso es <span class="font-semibold text-slate-900 italic">Axioma ERP</span>,
+                            un sistema de gestión empresarial completo que diseñé y construí de cero para PyMEs mexicanas
+                            de manufactura y distribución. No lo hice para una cartera de proyectos: lo hice porque
+                            <strong class="text-slate-800">conozco de primera mano la complejidad operativa de estas empresas</strong> —
+                            producción por lotes, órdenes de compra, kardex de inventario, cuentas por cobrar, portales
+                            de clientes — y ningún software genérico los cubría correctamente.
                         </p>
                         <p>
-                            Mi experiencia trasciende lo técnico. He gestionado reportes técnicos, manuales y propuestas comerciales para lanzamientos de marcas. Entiendo los KPI, el ROI y las necesidades de los tomadores de decisiones.
+                            Esa experiencia me permite hablar tu idioma como dueño de negocio: entiendo los KPI que
+                            importan, el costo de un error en inventario y por qué el ROI de un sistema personalizado
+                            supera siempre al de un template genérico.
                         </p>
                     </div>
                 </div>
-                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm">
-                    <h3 class="font-bold text-xl mb-6 text-slate-900 border-b border-slate-200 pb-4">El Caso de Éxito: Axioma</h3>
+
+                <!-- Axioma case study card -->
+                <div class="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-100 shadow-sm">
+                    <div class="flex items-center gap-3 mb-5 pb-4 border-b border-slate-200">
+                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-extrabold text-lg sm:text-xl text-slate-900">Caso de referencia: Axioma ERP</h3>
+                            <p class="text-xs text-blue-600 font-semibold uppercase tracking-wider">Manufactura &amp; Distribución MX</p>
+                        </div>
+                    </div>
                     <div class="space-y-4">
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold">1</div>
-                            <p class="text-sm text-slate-600"><span class="font-bold block text-slate-900">Arquitectura Robusta:</span> Diseñada para soportar operaciones críticas en tiempo real.</p>
+                        <div class="flex gap-3">
+                            <div class="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-xs sm:text-sm">1</div>
+                            <p class="text-sm text-slate-600">
+                                <span class="font-bold block text-slate-900">Producción y órdenes de manufactura:</span>
+                                Control de lotes, consumo teórico vs. real de materiales y control de calidad en cuarentena.
+                            </p>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold">2</div>
-                            <p class="text-sm text-slate-600"><span class="font-bold block text-slate-900">Escalabilidad:</span> Un sistema que crece a la par de la base de datos de clientes y transacciones.</p>
+                        <div class="flex gap-3">
+                            <div class="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-xs sm:text-sm">2</div>
+                            <p class="text-sm text-slate-600">
+                                <span class="font-bold block text-slate-900">Inventario y Kardex en tiempo real:</span>
+                                Trazabilidad completa de movimientos, multi-almacén y alertas de stock mínimo.
+                            </p>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold">3</div>
-                            <p class="text-sm text-slate-600"><span class="font-bold block text-slate-900">Orientado a PyMEs:</span> Interfaz intuitiva enfocada en la realidad operativa de México.</p>
+                        <div class="flex gap-3">
+                            <div class="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-xs sm:text-sm">3</div>
+                            <p class="text-sm text-slate-600">
+                                <span class="font-bold block text-slate-900">Portal de clientes (White Label):</span>
+                                Acceso seguro para que cada cliente vea su saldo, facturas y estado de pedidos al instante.
+                            </p>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-xs sm:text-sm">4</div>
+                            <p class="text-sm text-slate-600">
+                                <span class="font-bold block text-slate-900">Modelo SaaS multi-empresa:</span>
+                                Arquitectura lista para crecer: múltiples organizaciones, suscripciones y permisos granulares.
+                            </p>
                         </div>
                     </div>
-                    <div class="mt-8 pt-6 border-t border-slate-200">
-                        <div class="flex items-center gap-4 text-xs font-bold text-slate-400 uppercase tracking-widest">
-                            <span>Frontend</span>
-                            <span>•</span>
-                            <span>Backend</span>
-                            <span>•</span>
-                            <span>Data Science</span>
+                    <div class="mt-5 pt-5 border-t border-slate-200">
+                        <div class="flex flex-wrap gap-2 text-xs font-bold text-slate-400 uppercase tracking-widest">
+                            <span class="bg-slate-100 px-2 py-1 rounded">Next.js</span>
+                            <span class="bg-slate-100 px-2 py-1 rounded">PostgreSQL</span>
+                            <span class="bg-slate-100 px-2 py-1 rounded">Drizzle ORM</span>
+                            <span class="bg-slate-100 px-2 py-1 rounded">Stripe</span>
+                            <span class="bg-slate-100 px-2 py-1 rounded">SaaS</span>
                         </div>
                     </div>
                 </div>
@@ -127,99 +207,162 @@
         </div>
     </section>
 
-    <!-- Valores de Trabajo -->
-    <section class="py-24 px-6 bg-slate-50 border-y border-slate-100">
+    <!-- ═══════════════════════════════════════════
+         PILARES COMO CONSULTOR
+    ════════════════════════════════════════════ -->
+    <section class="py-12 md:py-20 lg:py-24 px-4 sm:px-6 bg-slate-50 border-y border-slate-100">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-extrabold mb-16 text-center">Mis pilares de ejecución</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Valor 1 -->
-                <div class="bg-white p-10 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-8">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+            <h2 class="text-2xl sm:text-3xl font-extrabold mb-10 md:mb-16 text-center tracking-tight">Mis pilares como consultor</h2>
+
+            <!-- 1 col mobile → 3 col desktop -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+
+                <!-- Pilar 1 -->
+                <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Pensamiento Estructurado</h3>
-                    <p class="text-slate-500 leading-relaxed">Traslado el rigor de las matemáticas al código. Cada función y cada módulo de mis aplicaciones tiene una razón de ser y una estructura lógica impecable.</p>
+                    <h3 class="text-lg sm:text-xl font-bold mb-3">Diagnóstico antes que código</h3>
+                    <p class="text-slate-500 leading-relaxed text-sm sm:text-base">
+                        Antes de proponer una solución, analizo tu proceso actual con la misma rigurosidad que un matemático analiza un sistema de ecuaciones. La tecnología correcta surge del problema correcto, no al revés.
+                    </p>
                 </div>
 
-                <!-- Valor 2 -->
-                <div class="bg-white p-10 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-8">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                <!-- Pilar 2 -->
+                <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Visión de Negocio</h3>
-                    <p class="text-slate-500 leading-relaxed">No soy solo un desarrollador; soy un estratega. Mi experiencia creando propuestas comerciales y ERPs me permite entender los objetivos financieros de tu proyecto.</p>
+                    <h3 class="text-lg sm:text-xl font-bold mb-3">Enfoque en retorno de inversión</h3>
+                    <p class="text-slate-500 leading-relaxed text-sm sm:text-base">
+                        Cada decisión de arquitectura la evalúo en términos de impacto en tu operación. No agrego complejidad innecesaria; entrego el sistema que genera valor desde el primer día, sin características que nadie usará.
+                    </p>
                 </div>
 
-                <!-- Valor 3 -->
-                <div class="bg-white p-10 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-8">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                <!-- Pilar 3 -->
+                <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow sm:col-span-2 lg:col-span-1">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Eficiencia y Escalabilidad</h3>
-                    <p class="text-slate-500 leading-relaxed">Construyo software que entrega resultados rápidos hoy, pero que está preparado para recibir miles de usuarios mañana. Desarrollo ágil sin sacrificar la ingeniería profunda.</p>
+                    <h3 class="text-lg sm:text-xl font-bold mb-3">Sistemas que escalan contigo</h3>
+                    <p class="text-slate-500 leading-relaxed text-sm sm:text-base">
+                        He diseñado plataformas que van de 0 a múltiples organizaciones, miles de transacciones y equipos completos. Tu sistema estará listo para crecer sin reescribirse desde cero.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- El Toque Personal -->
-    <section class="py-24 px-6 bg-white">
+    <!-- ═══════════════════════════════════════════
+         EL TOQUE PERSONAL
+    ════════════════════════════════════════════ -->
+    <section class="py-12 md:py-20 lg:py-24 px-4 sm:px-6 bg-white">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-extrabold mb-8 italic">"El software es una manifestación de la filosofía aplicada."</h2>
-            <div class="space-y-6 text-lg text-slate-600 mb-12">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold mb-6 italic text-slate-800 leading-snug">
+                "El software es la manifestación de la lógica aplicada a un problema humano."
+            </h2>
+            <div class="space-y-4 text-base sm:text-lg text-slate-600 mb-8 text-left max-w-3xl mx-auto bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-100">
                 <p>
-                    Fuera del editor de código, mi mente sigue trabajando. Soy un apasionado del <span class="font-bold text-slate-900">Ajedrez</span>, donde aprendí que la victoria requiere anticipación; de la <span class="font-bold text-slate-900">Economía</span>, para entender el flujo del valor; y de la <span class="font-bold text-slate-900">Filosofía</span>, para nunca dejar de preguntarme cómo hacer las cosas mejor.
+                    Fuera del trabajo, mi mente sigue resolviendo problemas. Soy apasionado del
+                    <span class="font-bold text-slate-900">Ajedrez</span> — un sistema de reglas deterministas con consecuencias no lineales, exactamente como un ERP bien diseñado.
                 </p>
                 <p>
-                    Para mí, cada proyecto no es solo una tarea pendiente en un tablero, es una oportunidad de atacar la complejidad con elegancia y propósito.
+                    Estudio <span class="font-bold text-slate-900">Economía</span> para entender el flujo del valor y cómo las decisiones operativas afectan la rentabilidad. Y me interesa la
+                    <span class="font-bold text-slate-900">Filosofía</span> porque creer que siempre hay una mejor forma de hacer las cosas es la única actitud válida en tecnología.
                 </p>
-            </div>
-            <div class="flex justify-center gap-12 text-slate-300">
-                <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M19,22H5V2H19V22M17,20V4H7V20H17M13,7H11V9H13V7M13,11H11V13H13V11M13,15H11V17H13V15Z"/></svg>
-                <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M13,10V12H15V10H13M13,14V16H15V14H13M9,10V12H11V10H9M9,14V16H11V14H9Z"/></svg>
-                <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/></svg>
+                <p>
+                    Para mí, cada proyecto es una ecuación con restricciones reales: tiempo, presupuesto, operación actual y crecimiento futuro. Mi trabajo es encontrar la solución óptima.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Llamado a la Acción (CTA) -->
-    <section class="py-20 px-6 tech-gradient text-white">
+    <!-- ═══════════════════════════════════════════
+         CTA FINAL
+    ════════════════════════════════════════════ -->
+    <section class="py-16 sm:py-20 px-4 sm:px-6 tech-gradient text-white">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl md:text-5xl font-extrabold mb-8">¿Listo para poner la lógica a trabajar para tu empresa?</h2>
-            <p class="text-xl text-blue-100 mb-10">
-                Hablemos de tu proyecto y cómo mi perfil analítico puede transformarlo en una solución rentable.
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
+                ¿Listo para poner la lógica a trabajar para tu empresa?
+            </h2>
+            <p class="text-base sm:text-lg md:text-xl text-blue-100 mb-8 sm:mb-10 max-w-2xl mx-auto">
+                Una llamada de 15 minutos es suficiente para diagnosticar tu cuello de botella
+                y proponerte un camino claro.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="index.html#contacto" class="px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-bold text-xl transition-all transform hover:scale-105 shadow-xl">
-                    Agendar consulta gratuita
+                <a href="index.html#contacto" id="about-cta-primary"
+                   class="px-8 sm:px-10 py-4 sm:py-5 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-bold text-base sm:text-xl transition-all transform hover:scale-105 shadow-xl text-center">
+                    Agendar consultoría gratuita
                 </a>
-                <a href="index.html" class="px-10 py-5 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-bold text-xl transition-all">
-                    Volver al inicio
+                <a href="index.html" id="about-cta-secondary"
+                   class="px-8 sm:px-10 py-4 sm:py-5 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-bold text-base sm:text-xl transition-all text-center">
+                    Ver soluciones y tiempos
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-12 bg-white px-6 border-t border-slate-100">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm">
-            <div class="mb-4 md:mb-0">
-                &copy; 2026 Claudio Ariza. Ciudad de México.
+    <!-- ═══════════════════════════════════════════
+         FOOTER
+    ════════════════════════════════════════════ -->
+    <footer class="py-10 sm:py-12 bg-white px-4 sm:px-6 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-slate-400 text-sm text-center md:text-left">
+            <div>
+                <span class="text-blue-600 font-extrabold uppercase tracking-tighter text-base">CLAUDIO<span class="text-slate-900">ARIZA</span></span>
+                <span class="block sm:inline sm:ml-2 text-xs sm:text-sm">· Consultoría &amp; Desarrollo de Software · CDMX, México</span>
             </div>
-            <div class="flex space-x-6">
-                <a href="https://www.linkedin.com/in/claudio-ariza-balseca-865853226/" target="_blank"
-                    class="hover:text-blue-600">LinkedIn</a>
+            <div class="flex gap-5 sm:gap-6">
+                <a href="index.html" class="hover:text-blue-600 transition">Inicio</a>
+                <a href="https://www.linkedin.com/in/claudio-ariza-balseca-865853226/" target="_blank" class="hover:text-blue-600">LinkedIn</a>
                 <a href="https://github.com/claudioAB-dev" target="_blank" class="hover:text-blue-600">GitHub</a>
             </div>
         </div>
+        <div class="max-w-7xl mx-auto mt-4 text-slate-300 text-xs text-center md:text-left">
+            &copy; 2026 Claudio Ariza. Todos los derechos reservados.
+        </div>
     </footer>
 
-</body>
+    <!-- ═══════════════════════════════════════════
+         MOBILE NAV SCRIPT
+    ════════════════════════════════════════════ -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const lines      = menuToggle.querySelectorAll('.hamburger-line');
 
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            lines[0].style.transform = 'translateY(6px) rotate(45deg)';
+            lines[1].style.opacity   = '0';
+            lines[2].style.transform = 'translateY(-6px) rotate(-45deg)';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            lines[0].style.transform = '';
+            lines[1].style.opacity   = '';
+            lines[2].style.transform = '';
+        }
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+            isOpen ? closeMobileMenu() : openMobileMenu();
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) closeMobileMenu();
+        });
+    </script>
+
+</body>
 </html>

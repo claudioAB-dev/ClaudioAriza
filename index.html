@@ -6,352 +6,649 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://claudioariza.com/">
-    <meta property="og:title" content="Claudio Ariza | Desarrollo Web de Alta Ingeniería">
+    <meta property="og:title" content="Claudio Ariza | Software a Medida para PyMEs">
     <meta property="og:description"
-        content="Software escalable, rápido y económico para PyMEs y Startups. Lógica matemática aplicada a tu negocio.">
+        content="Transformo tus procesos manuales en software a medida. Sistemas internos, portales B2B y automatización en semanas, no en meses.">
     <meta property="og:image" content="https://claudioariza.com/ProfilePhoto.jpg">
-
     <meta property="twitter:card" content="summary_large_image">
-    <title>Claudio Ariza | Desarrollo Web de Alta Ingeniería</title>
+
+    <title>Claudio Ariza | Software a Medida para PyMEs — Rápido y sin dolores de cabeza</title>
     <meta name="description"
-        content="Desarrollo aplicaciones web escalables, rápidas y económicas para PyMEs y Startups en México. De la complejidad de un ERP a la agilidad de tu negocio.">
+        content="Diseño y construyo sistemas internos, portales de clientes y herramientas de automatización en semanas, no en meses. Enfoque 100% en el retorno de tu inversión.">
 
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts: Inter para un look Tech/Moderno -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
+        body { font-family: 'Inter', sans-serif; }
+
+        .tech-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+
+        .accent-glow:hover { box-shadow: 0 0 20px rgba(37, 99, 235, 0.4); }
+
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.6; }
+            50%       { opacity: 1; }
+        }
+        .pulse-slow { animation: pulse-slow 3s ease-in-out infinite; }
+
+        .pain-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .pain-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+
+        .pkg-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .pkg-card:hover { transform: translateY(-6px); }
+
+        .time-badge {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border: 1px solid #bfdbfe;
         }
 
-        .tech-gradient {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        }
-
-        .accent-glow:hover {
-            box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
-        }
+        /* Mobile menu slide-in */
+        #mobile-menu { transition: max-height 0.3s ease, opacity 0.3s ease; }
     </style>
 </head>
 
-<body class="bg-slate-50 text-slate-900 antialiased">
+<!-- overflow-x-hidden prevents any absolutely-positioned decorative elements from causing horizontal scroll -->
+<body class="bg-slate-50 text-slate-900 antialiased overflow-x-hidden">
 
-    <!-- Header / Nav -->
-    <header class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
-        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-xl font-extrabold tracking-tighter text-blue-600 uppercase">
+    <!-- ═══════════════════════════════════════════
+         HEADER / NAV
+    ════════════════════════════════════════════ -->
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
+
+            <!-- Logo -->
+            <a href="#top" class="text-lg sm:text-xl font-extrabold tracking-tighter text-blue-600 uppercase flex-shrink-0">
                 CLAUDIO<span class="text-slate-900">ARIZA</span>
-            </div>
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
-                <a href="#top" class="hover:text-blue-600 transition">Inicio</a>
-                <a href="about.html" class="hover:text-blue-600 transition">Sobre Mí</a>
-                <a href="#contacto" class="hover:text-blue-600 transition">Contacto</a>
-            </div>
-            <a href="https://wa.me/5613591740"
-                class="bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-semibold accent-glow transition-all hover:bg-blue-700">
-                Cotizar Proyecto
             </a>
+
+            <!-- Desktop links -->
+            <div class="hidden lg:flex space-x-8 text-sm font-medium text-slate-600">
+                <a href="#top"        class="hover:text-blue-600 transition">Inicio</a>
+                <a href="#soluciones" class="hover:text-blue-600 transition">Soluciones</a>
+                <a href="#proceso"    class="hover:text-blue-600 transition">Proceso</a>
+                <a href="about.html"  class="hover:text-blue-600 transition">Sobre Mí</a>
+                <a href="#contacto"   class="hover:text-blue-600 transition">Contacto</a>
+            </div>
+
+            <!-- Right side: desktop CTA + hamburger -->
+            <div class="flex items-center gap-3">
+                <!-- CTA visible on all sizes, text changes on small screens -->
+                <a href="#contacto" id="nav-cta"
+                   class="bg-blue-600 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold accent-glow transition-all hover:bg-blue-700 whitespace-nowrap">
+                    <span class="hidden sm:inline">Agendar consultoría gratis</span>
+                    <span class="sm:hidden">Agendar</span>
+                </a>
+
+                <!-- Hamburger — visible below lg -->
+                <button id="menu-toggle" aria-label="Abrir menú" aria-expanded="false"
+                        class="lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-slate-100 transition">
+                    <span class="hamburger-line block w-5 h-0.5 bg-slate-700 mb-1 transition-all duration-300"></span>
+                    <span class="hamburger-line block w-5 h-0.5 bg-slate-700 mb-1 transition-all duration-300"></span>
+                    <span class="hamburger-line block w-5 h-0.5 bg-slate-700 transition-all duration-300"></span>
+                </button>
+            </div>
         </nav>
+
+        <!-- Mobile dropdown menu -->
+        <div id="mobile-menu"
+             class="lg:hidden hidden overflow-hidden bg-white border-t border-slate-100 shadow-lg">
+            <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col space-y-1">
+                <a href="#top"        onclick="closeMobileMenu()" class="px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition">Inicio</a>
+                <a href="#soluciones" onclick="closeMobileMenu()" class="px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition">Soluciones</a>
+                <a href="#proceso"    onclick="closeMobileMenu()" class="px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition">Proceso</a>
+                <a href="about.html"                              class="px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition">Sobre Mí</a>
+                <a href="#contacto"   onclick="closeMobileMenu()" class="px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition">Contacto</a>
+                <div class="pt-2 border-t border-slate-100">
+                    <a href="#contacto" onclick="closeMobileMenu()"
+                       class="block w-full py-3 bg-blue-600 text-white rounded-xl font-bold text-center hover:bg-blue-700 transition text-sm">
+                        Agendar consultoría de 15 min
+                    </a>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-6 lg:pt-48 lg:pb-32">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+    <!-- ═══════════════════════════════════════════
+         HERO SECTION
+    ════════════════════════════════════════════ -->
+    <section id="top" class="pt-28 pb-12 px-4 sm:px-6 md:pt-36 lg:pt-48 lg:pb-32">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+            <!-- Copy -->
             <div>
-                <span
-                    class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full">
-                    Desarrollo Web Senior para Startups y PYMES
+                <span class="inline-block px-3 py-1.5 mb-5 text-xs font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full">
+                    Consultoría &amp; Desarrollo · PyMEs México
                 </span>
-                <h1 class="text-5xl lg:text-7xl font-extrabold leading-[1.1] mb-6 tracking-tight">
-                    Software de <span class="text-blue-600">Alta Ingeniería</span> a la velocidad de tu negocio.
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-5 tracking-tight">
+                    Transformo tus procesos manuales en
+                    <span class="text-blue-600">software a medida.</span>
+                    Rápido y sin dolores de cabeza.
                 </h1>
-                <p class="text-xl text-slate-600 mb-8 leading-relaxed max-w-xl">
-                    No construyo "páginas", diseño sistemas robustos. Aplico la experiencia de haber creado un ERP desde
-                    cero para entregarte soluciones escalables, rápidas y sin romper el banco.
+                <p class="text-base sm:text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
+                    Diseño y construyo sistemas internos, portales de clientes y herramientas de automatización
+                    <strong class="text-slate-800">en semanas, no en meses.</strong>
+                    Enfoque 100% en el retorno de tu inversión.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#contacto"
-                        class="px-8 py-4 bg-slate-900 text-white rounded-xl font-bold text-center hover:bg-slate-800 transition-all transform hover:-translate-y-1">
-                        Agendar llamada gratuita
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                    <a href="#contacto" id="hero-cta-primary"
+                       class="px-6 sm:px-8 py-3.5 sm:py-4 bg-blue-600 text-white rounded-xl font-bold text-center hover:bg-blue-700 transition-all transform hover:-translate-y-1 shadow-lg shadow-blue-600/30 text-sm sm:text-base">
+                        Agendar consultoría de 15 min
                     </a>
-                    <a href="#servicios"
-                        class="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-xl font-bold text-center hover:bg-slate-50 transition-all">
-                        Ver planes y precios
+                    <a href="#soluciones" id="hero-cta-secondary"
+                       class="px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-slate-900 border border-slate-200 rounded-xl font-bold text-center hover:bg-slate-50 transition-all hover:-translate-y-1 transform text-sm sm:text-base">
+                        Ver soluciones y tiempos
                     </a>
                 </div>
-            </div>
-            <div class="relative">
-                <div class="absolute -inset-4 bg-blue-500/10 rounded-3xl blur-2xl"></div>
-                <div class="relative bg-slate-900 rounded-2xl p-4 shadow-2xl border border-slate-800">
-                    <!-- Decoración tipo Editor de Código -->
-                    <div class="flex space-x-2 mb-4">
-                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+
+                <!-- Social proof strip -->
+                <div class="mt-8 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-xs sm:text-sm text-slate-400">
+                    <div class="flex items-center gap-2">
+                        <div class="w-2 h-2 rounded-full bg-green-500 pulse-slow flex-shrink-0"></div>
+                        <span>Disponible para nuevos proyectos</span>
                     </div>
-                    <code class="text-blue-400 text-sm md:text-base leading-relaxed">
-                        <span class="text-purple-400">const</span> claudioAriza = {<br>
-                        &nbsp;&nbsp;expertise: <span class="text-yellow-200">"Fullstack ERP Creator"</span>,<br>
-                        &nbsp;&nbsp;focus: <span class="text-yellow-200">"Scalability & ROI"</span>,<br>
-                        &nbsp;&nbsp;speed: <span class="text-yellow-200">"10x Development"</span>,<br>
-                        &nbsp;&nbsp;deliver: () => <span class="text-green-400">"Business Value"</span><br>
-                        };
-                    </code>
+                    <span class="hidden sm:inline text-slate-200">|</span>
+                    <span>🏭 Experiencia en manufactura &amp; distribución MX</span>
+                </div>
+            </div>
+
+            <!-- Abstract Visual: Mini Dashboard
+                 Hidden on small screens to avoid pushing content down -->
+            <div class="relative hidden sm:block">
+                <div class="absolute -inset-4 bg-blue-500/10 rounded-3xl blur-3xl pointer-events-none"></div>
+                <div class="relative bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden">
+                    <!-- Dashboard header bar -->
+                    <div class="bg-slate-900 px-4 py-3 flex items-center justify-between">
+                        <div class="flex space-x-1.5">
+                            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                        </div>
+                        <span class="text-slate-400 text-xs font-mono truncate mx-2">mi-empresa.app · Dashboard</span>
+                        <div class="w-8 flex-shrink-0"></div>
+                    </div>
+
+                    <!-- Dashboard body -->
+                    <div class="p-4 sm:p-6 bg-slate-50">
+                        <!-- KPI Row -->
+                        <div class="grid grid-cols-3 gap-2 sm:gap-3 mb-4 sm:mb-5">
+                            <div class="bg-white rounded-xl p-3 sm:p-4 border border-slate-100 shadow-sm">
+                                <p class="text-xs text-slate-400 mb-1">Pedidos hoy</p>
+                                <p class="text-xl sm:text-2xl font-extrabold text-slate-900">47</p>
+                                <p class="text-xs text-green-600 font-semibold mt-1">↑ 12%</p>
+                            </div>
+                            <div class="bg-white rounded-xl p-3 sm:p-4 border border-slate-100 shadow-sm">
+                                <p class="text-xs text-slate-400 mb-1">Facturado</p>
+                                <p class="text-xl sm:text-2xl font-extrabold text-blue-600">$84k</p>
+                                <p class="text-xs text-green-600 font-semibold mt-1">↑ 8%</p>
+                            </div>
+                            <div class="bg-white rounded-xl p-3 sm:p-4 border border-slate-100 shadow-sm">
+                                <p class="text-xs text-slate-400 mb-1">Por cobrar</p>
+                                <p class="text-xl sm:text-2xl font-extrabold text-slate-900">12</p>
+                                <p class="text-xs text-amber-500 font-semibold mt-1">→ Pendiente</p>
+                            </div>
+                        </div>
+
+                        <!-- Mini chart bars -->
+                        <div class="bg-white rounded-xl p-4 border border-slate-100 shadow-sm mb-3 sm:mb-4">
+                            <p class="text-xs text-slate-500 font-semibold mb-3">Ventas — últimas 7 semanas</p>
+                            <div class="flex items-end gap-1.5 sm:gap-2 h-14 sm:h-16">
+                                <div class="flex-1 bg-blue-100 rounded-t" style="height:45%"></div>
+                                <div class="flex-1 bg-blue-200 rounded-t" style="height:60%"></div>
+                                <div class="flex-1 bg-blue-300 rounded-t" style="height:50%"></div>
+                                <div class="flex-1 bg-blue-400 rounded-t" style="height:80%"></div>
+                                <div class="flex-1 bg-blue-500 rounded-t" style="height:70%"></div>
+                                <div class="flex-1 bg-blue-600 rounded-t" style="height:90%"></div>
+                                <div class="flex-1 bg-blue-700 rounded-t" style="height:100%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Status rows -->
+                        <div class="space-y-2">
+                            <div class="bg-white rounded-lg px-3 sm:px-4 py-2.5 border border-slate-100 flex items-center justify-between text-xs sm:text-sm gap-2">
+                                <span class="text-slate-600 font-medium truncate">Inventario · Almacén A</span>
+                                <span class="bg-green-100 text-green-700 px-2 py-0.5 rounded-full text-xs font-bold flex-shrink-0">Actualizado</span>
+                            </div>
+                            <div class="bg-white rounded-lg px-3 sm:px-4 py-2.5 border border-slate-100 flex items-center justify-between text-xs sm:text-sm gap-2">
+                                <span class="text-slate-600 font-medium truncate">Portal Clientes · 3 activos</span>
+                                <span class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full text-xs font-bold flex-shrink-0">En línea</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- La Diferencia / Credencial -->
-    <section id="metodologia" class="py-24 bg-white border-y border-slate-100 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-8">¿Por qué trabajar conmigo?</h2>
-            <p class="text-lg text-slate-600 mb-12 italic">
-                "He construido plataformas SaaS complejas (ERP) desde la primera línea de código. Sé lo que significa
-                que el software NO falle cuando tu negocio crece."
-            </p>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-6">
-                    <div
-                        class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mx-auto mb-4 font-bold text-xl">
-                        1</div>
-                    <h3 class="font-bold mb-2">Código Limpio</h3>
-                    <p class="text-sm text-slate-500">Arquitectura profesional que permite que tu sistema crezca sin
-                        volverse lento o costoso.</p>
-                </div>
-                <div class="p-6">
-                    <div
-                        class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mx-auto mb-4 font-bold text-xl">
-                        2</div>
-                    <h3 class="font-bold mb-2">Velocidad Lean</h3>
-                    <p class="text-sm text-slate-500">Metodologías ágiles para validar tu idea en días, no en meses.
-                        Tiempo es dinero.</p>
-                </div>
-                <div class="p-6">
-                    <div
-                        class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mx-auto mb-4 font-bold text-xl">
-                        3</div>
-                    <h3 class="font-bold mb-2">Enfoque a Negocio</h3>
-                    <p class="text-sm text-slate-500">No soy un implementador de templates. Soy un socio tecnológico que
-                        entiende tus procesos.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Servicios / Planes -->
-    <section id="servicios" class="py-24 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-extrabold mb-4">Soluciones a tu medida</h2>
-                <p class="text-slate-600">Elige el punto de partida para la transformación digital de tu empresa.</p>
+    <!-- ═══════════════════════════════════════════
+         SECCIÓN DE DOLOR
+    ════════════════════════════════════════════ -->
+    <section id="dolor" class="py-12 md:py-20 lg:py-24 bg-white border-y border-slate-100 px-4 sm:px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-10 md:mb-14">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4 tracking-tight">
+                    ¿Tu negocio está creciendo pero tus herramientas
+                    <span class="text-blue-600">se quedaron atrás?</span>
+                </h2>
+                <p class="text-slate-500 text-base sm:text-lg max-w-2xl mx-auto">
+                    Si alguna de estas situaciones te resulta familiar, es momento de hablar.
+                </p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Paquete 1 -->
-                <div
-                    class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all flex flex-col">
-                    <h3 class="text-xl font-extrabold mb-2 tracking-tight">Presencia Acelerada</h3>
-                    <p class="text-slate-500 text-sm mb-6 uppercase tracking-wider font-semibold">Validación y Landings
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+                <!-- Dolor 1 -->
+                <div class="pain-card bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-amber-400 rounded-l-2xl"></div>
+                    <div class="w-11 h-11 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <p class="text-slate-700 font-semibold leading-relaxed text-sm sm:text-base">
+                        ¿Manejas información crítica de tu empresa en <strong class="text-slate-900">hojas de cálculo interminables</strong> y propensas a errores?
                     </p>
-                    <div class="text-4xl font-extrabold mb-6">
-                        <span class="text-lg font-medium text-slate-400 tracking-normal">Desde</span> $3,000 <span
-                            class="text-sm text-slate-400">MXN</span>
-                    </div>
-                    <ul class="text-slate-600 space-y-4 mb-8 text-sm grow">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Diseño enfocado a conversión
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Optimización móvil (100/100)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Integración con CRM/WhatsApp
-                        </li>
-                        <li class="font-bold text-slate-900 flex items-center">
-                            <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            Entrega en 1 semana
-                        </li>
-                    </ul>
-                    <a href="#contacto"
-                        class="w-full py-3 bg-slate-100 text-slate-900 rounded-xl font-bold text-center hover:bg-slate-200 transition">Comenzar
-                        ahora</a>
                 </div>
 
-                <!-- Paquete 2 -->
-                <div class="bg-white p-8 rounded-2xl border-2 border-blue-600 shadow-xl flex flex-col relative">
-                    <div
-                        class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
-                        Más Popular</div>
-                    <h3 class="text-xl font-extrabold mb-2 tracking-tight">Operación Digital</h3>
-                    <p class="text-slate-500 text-sm mb-6 uppercase tracking-wider font-semibold">Dashboards y CRUDs</p>
-                    <div class="text-4xl font-extrabold mb-6 text-blue-600">
-                        <span class="text-lg font-medium text-slate-400 tracking-normal">Desde</span> $6,000 <span
-                            class="text-sm text-slate-400">MXN</span>
+                <!-- Dolor 2 -->
+                <div class="pain-card bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-red-400 rounded-l-2xl"></div>
+                    <div class="w-11 h-11 bg-red-100 text-red-500 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                        </svg>
                     </div>
-                    <ul class="text-slate-600 space-y-4 mb-8 text-sm grow">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Sistemas de gestión interna
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Automatización de procesos
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Base de datos escalable
-                        </li>
-                        <li class="font-bold text-slate-900 flex items-center">
-                            <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            Entrega en 3-4 semanas
-                        </li>
-                    </ul>
-                    <a href="#contacto"
-                        class="w-full py-3 bg-blue-600 text-white rounded-xl font-bold text-center hover:bg-blue-700 transition">Lo
-                        necesito para mi empresa</a>
+                    <p class="text-slate-700 font-semibold leading-relaxed text-sm sm:text-base">
+                        ¿Tu equipo pierde <strong class="text-slate-900">horas valiosas triangulando datos</strong> entre sistemas que no se comunican entre sí?
+                    </p>
                 </div>
 
-                <!-- Paquete 3 -->
-                <div
-                    class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all flex flex-col">
-                    <h3 class="text-xl font-extrabold mb-2 tracking-tight">MVP para Startups</h3>
-                    <p class="text-slate-500 text-sm mb-6 uppercase tracking-wider font-semibold">Producto a medida</p>
-                    <div class="text-4xl font-extrabold mb-6 text-slate-900">
-                        <span class="text-lg font-medium text-slate-400 tracking-normal">Desde</span> $12,000 <span
-                            class="text-sm text-slate-400">MXN</span>
+                <!-- Dolor 3 -->
+                <div class="pain-card bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-blue-500 rounded-l-2xl"></div>
+                    <div class="w-11 h-11 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
                     </div>
-                    <ul class="text-slate-600 space-y-4 mb-8 text-sm grow">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Arquitectura nivel SaaS (Axioma)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Integración con APIs externas
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Pasarelas de pago y seguridad
-                        </li>
-                        <li class="font-bold text-slate-900 flex items-center">
-                            <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            Entrega en 6-8 semanas
-                        </li>
-                    </ul>
-                    <a href="#contacto"
-                        class="w-full py-3 bg-slate-900 text-white rounded-xl font-bold text-center hover:bg-slate-800 transition">Construye
-                        mi Startup</a>
+                    <p class="text-slate-700 font-semibold leading-relaxed text-sm sm:text-base">
+                        ¿Necesitas una plataforma web rápida y <strong class="text-slate-900">ningún software genérico se adapta</strong> a las reglas específicas de tu operación?
+                    </p>
                 </div>
             </div>
 
-            <p class="text-center text-slate-400 text-xs mt-12 italic">
-                * Precios sujetos a cambios según requerimientos específicos. Hosting y mantenimiento mensual no
-                incluidos.
+            <div class="text-center mt-8 sm:mt-10">
+                <a href="#contacto"
+                   class="inline-flex items-center gap-2 text-blue-600 font-bold hover:gap-3 transition-all text-sm">
+                    Platícame tu situación y te propongo una solución
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SERVICIOS PRODUCTIZADOS
+    ════════════════════════════════════════════ -->
+    <section id="soluciones" class="py-12 md:py-20 lg:py-24 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-10 md:mb-16">
+                <span class="inline-block px-3 py-1.5 mb-4 text-xs font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full">
+                    Paquetes de Solución
+                </span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4 tracking-tight">Elige tu punto de partida</h2>
+                <p class="text-slate-500 max-w-xl mx-auto text-sm sm:text-base">
+                    Precios claros, alcances definidos y <strong class="text-slate-700">fechas de entrega reales.</strong>
+                    Sin sorpresas.
+                </p>
+            </div>
+
+            <!-- Cards stack on mobile → 1 col; tablet+: 3 col -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-start">
+
+                <!-- Paquete 1: Herramientas Internas -->
+                <div id="pkg-interno" class="pkg-card bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl flex flex-col">
+                    <div class="w-11 h-11 bg-slate-100 text-slate-700 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-extrabold mb-1 tracking-tight">Herramientas Internas y Dashboards</h3>
+                    <p class="text-slate-500 text-xs sm:text-sm mb-4 uppercase tracking-wider font-semibold">Operaciones &amp; Decisiones</p>
+
+                    <div class="time-badge rounded-xl px-4 py-3 mb-5 flex items-center gap-3">
+                        <svg class="w-5 h-5 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <div>
+                            <span class="text-xl sm:text-2xl font-extrabold text-blue-700">2 a 3 semanas</span>
+                            <span class="block text-xs text-blue-500 font-semibold">Entrega estimada</span>
+                        </div>
+                    </div>
+
+                    <div class="text-xl sm:text-2xl font-extrabold mb-4 text-slate-500">Cotización a medida</div>
+
+                    <p class="text-slate-500 text-sm mb-5 leading-relaxed grow">
+                        Ideal para <strong class="text-slate-700">digitalizar un proceso específico</strong>: cotizaciones automáticas, control de inventario, visualización de métricas en tiempo real, reportes gerenciales.
+                    </p>
+
+                    <ul class="text-slate-600 space-y-2.5 mb-6 text-sm">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                            Panel administrativo con roles y permisos
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                            Importación / exportación de datos
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                            Diseño adaptado a tu flujo exacto de trabajo
+                        </li>
+                    </ul>
+
+                    <a href="#contacto"
+                       class="w-full py-3 bg-slate-100 text-slate-900 rounded-xl font-bold text-center hover:bg-slate-200 transition text-sm sm:text-base">
+                        Quiero esto para mi empresa
+                    </a>
+                </div>
+
+                <!-- Paquete 2: Portales B2B — DESTACADO -->
+                <div id="pkg-portal" class="pkg-card bg-white p-6 sm:p-8 rounded-2xl border-2 border-blue-600 shadow-xl flex flex-col relative mt-4 md:mt-0">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest shadow-lg whitespace-nowrap">
+                        Más solicitado
+                    </div>
+                    <div class="w-11 h-11 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4 mt-3">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-extrabold mb-1 tracking-tight">Portales B2B / Clientes</h3>
+                    <p class="text-slate-500 text-xs sm:text-sm mb-4 uppercase tracking-wider font-semibold">Plataformas Web a Medida</p>
+
+                    <div class="time-badge rounded-xl px-4 py-3 mb-5 flex items-center gap-3">
+                        <svg class="w-5 h-5 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <div>
+                            <span class="text-xl sm:text-2xl font-extrabold text-blue-700">3 a 4 semanas</span>
+                            <span class="block text-xs text-blue-500 font-semibold">Entrega estimada</span>
+                        </div>
+                    </div>
+
+                    <div class="text-xl sm:text-2xl font-extrabold mb-4 text-blue-600">Cotización a medida</div>
+
+                    <p class="text-slate-500 text-sm mb-5 leading-relaxed grow">
+                        Plataformas web ultrarrápidas para que <strong class="text-slate-700">tus clientes interactúen directamente con tu negocio</strong>: pedidos en línea, seguimiento de envíos, descarga de facturas, estados de cuenta.
+                    </p>
+
+                    <ul class="text-slate-600 space-y-2.5 mb-6 text-sm">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                            Portal de acceso seguro para tus clientes
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                            Integrado con tu sistema de gestión actual
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                            Notificaciones y alertas automatizadas
+                        </li>
+                    </ul>
+
+                    <a href="#contacto"
+                       class="w-full py-3 bg-blue-600 text-white rounded-xl font-bold text-center hover:bg-blue-700 transition shadow-lg shadow-blue-600/30 text-sm sm:text-base">
+                        Lo necesito para mi empresa
+                    </a>
+                </div>
+
+                <!-- Paquete 3: MVP Acelerado -->
+                <div id="pkg-mvp" class="pkg-card bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl flex flex-col">
+                    <div class="w-11 h-11 bg-slate-900 text-white rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-extrabold mb-1 tracking-tight">El MVP Acelerado</h3>
+                    <p class="text-slate-500 text-xs sm:text-sm mb-4 uppercase tracking-wider font-semibold">Productos Digitales</p>
+
+                    <div class="time-badge rounded-xl px-4 py-3 mb-5 flex items-center gap-3">
+                        <svg class="w-5 h-5 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <div>
+                            <span class="text-xl sm:text-2xl font-extrabold text-blue-700">4 a 6 semanas</span>
+                            <span class="block text-xs text-blue-500 font-semibold">Entrega estimada</span>
+                        </div>
+                    </div>
+
+                    <div class="text-xl sm:text-2xl font-extrabold mb-4 text-slate-900">Cotización a medida</div>
+
+                    <p class="text-slate-500 text-sm mb-5 leading-relaxed grow">
+                        Para fundadores que necesitan <strong class="text-slate-700">lanzar la primera versión de su producto digital (SaaS)</strong> al mercado en tiempo récord, con autenticación, pagos y base escalable.
+                    </p>
+
+                    <ul class="text-slate-600 space-y-2.5 mb-6 text-sm">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                            Arquitectura nivel SaaS (multi-tenant)
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                            Pasarela de pago y onboarding
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                            Listo para crecer y recibir inversión
+                        </li>
+                    </ul>
+
+                    <a href="#contacto"
+                       class="w-full py-3 bg-slate-900 text-white rounded-xl font-bold text-center hover:bg-slate-800 transition text-sm sm:text-base">
+                        Lanzar mi producto
+                    </a>
+                </div>
+            </div>
+
+            <p class="text-center text-slate-400 text-xs mt-8 sm:mt-12 italic px-2">
+                * Los tiempos de entrega aplican a alcances estándar definidos en la propuesta. Proyectos de mayor complejidad se cotizan de forma personalizada.
             </p>
         </div>
     </section>
 
-    <!-- CTA Final / Contacto -->
-    <section id="contacto" class="py-24 px-6 tech-gradient text-white overflow-hidden relative">
-        <!-- Decoración de fondo -->
-        <div
-            class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-3xl">
+    <!-- ═══════════════════════════════════════════
+         EL PROCESO — 4 PASOS
+    ════════════════════════════════════════════ -->
+    <section id="proceso" class="py-12 md:py-20 lg:py-24 px-4 sm:px-6 bg-white border-t border-slate-100">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-10 md:mb-16">
+                <span class="inline-block px-3 py-1.5 mb-4 text-xs font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full">
+                    Sin incertidumbre
+                </span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4 tracking-tight">Cómo trabajaremos juntos</h2>
+                <p class="text-slate-500 max-w-xl mx-auto text-sm sm:text-base">
+                    Un proceso transparente donde sabrás exactamente qué pasa en cada etapa.
+                </p>
+            </div>
+
+            <!-- Mobile: vertical stack with left-side connector
+                 Desktop: 4-column horizontal layout -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 md:gap-6">
+
+                <!-- Paso 1 -->
+                <div class="flex flex-col">
+                    <div class="flex items-center mb-3 md:mb-4">
+                        <div class="w-11 h-11 bg-blue-600 text-white rounded-full flex items-center justify-center font-extrabold text-base shadow-lg shadow-blue-600/30 flex-shrink-0 z-10">
+                            1
+                        </div>
+                        <div class="hidden md:block flex-1 h-0.5 bg-gradient-to-r from-blue-600 to-blue-200 ml-2"></div>
+                        <!-- Mobile vertical line — purely decorative, hidden on md+ -->
+                        <div class="md:hidden flex-1 h-px bg-slate-200 ml-3"></div>
+                    </div>
+                    <div class="bg-slate-50 rounded-2xl p-5 border border-slate-100 h-full">
+                        <h3 class="font-extrabold text-slate-900 mb-1 text-sm sm:text-base">Auditoría</h3>
+                        <p class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-2">Llamada inicial · 15 min</p>
+                        <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                            Entendemos tu cuello de botella operativo. Sin tecnicismos, solo tus procesos y tu objetivo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="flex flex-col">
+                    <div class="flex items-center mb-3 md:mb-4">
+                        <div class="w-11 h-11 bg-blue-600 text-white rounded-full flex items-center justify-center font-extrabold text-base shadow-lg shadow-blue-600/30 flex-shrink-0 z-10">
+                            2
+                        </div>
+                        <div class="hidden md:block flex-1 h-0.5 bg-gradient-to-r from-blue-600 to-blue-200 ml-2"></div>
+                        <div class="md:hidden flex-1 h-px bg-slate-200 ml-3"></div>
+                    </div>
+                    <div class="bg-slate-50 rounded-2xl p-5 border border-slate-100 h-full">
+                        <h3 class="font-extrabold text-slate-900 mb-1 text-sm sm:text-base">Propuesta y Arquitectura</h3>
+                        <p class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-2">Alcance y fechas definidas</p>
+                        <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                            Definimos el alcance exacto, la inversión total y las fechas de entrega. Todo por escrito. Sin costos ocultos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="flex flex-col">
+                    <div class="flex items-center mb-3 md:mb-4">
+                        <div class="w-11 h-11 bg-blue-600 text-white rounded-full flex items-center justify-center font-extrabold text-base shadow-lg shadow-blue-600/30 flex-shrink-0 z-10">
+                            3
+                        </div>
+                        <div class="hidden md:block flex-1 h-0.5 bg-gradient-to-r from-blue-600 to-blue-200 ml-2"></div>
+                        <div class="md:hidden flex-1 h-px bg-slate-200 ml-3"></div>
+                    </div>
+                    <div class="bg-slate-50 rounded-2xl p-5 border border-slate-100 h-full">
+                        <h3 class="font-extrabold text-slate-900 mb-1 text-sm sm:text-base">Desarrollo Ágil</h3>
+                        <p class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-2">Entregas parciales semanales</p>
+                        <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                            Ves avances reales cada semana en un ambiente de pruebas. <strong class="text-slate-700">Cero cajas negras.</strong> Tus retroalimentaciones moldean el resultado.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="flex flex-col">
+                    <div class="flex items-center mb-3 md:mb-4">
+                        <div class="w-11 h-11 bg-green-500 text-white rounded-full flex items-center justify-center font-extrabold text-base shadow-lg shadow-green-500/30 flex-shrink-0 z-10">
+                            ✓
+                        </div>
+                        <div class="md:hidden flex-1 h-px bg-slate-200 ml-3"></div>
+                    </div>
+                    <div class="bg-green-50 rounded-2xl p-5 border border-green-100 h-full">
+                        <h3 class="font-extrabold text-slate-900 mb-1 text-sm sm:text-base">Lanzamiento</h3>
+                        <p class="text-xs text-green-600 font-bold uppercase tracking-wider mb-2">Entregado y funcionando</p>
+                        <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                            Tu sistema en producción, generando valor desde el primer día. Incluye capacitación y soporte post-lanzamiento.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         CTA FINAL / CONTACTO
+    ════════════════════════════════════════════ -->
+    <section id="contacto" class="py-16 sm:py-20 md:py-24 px-4 sm:px-6 tech-gradient text-white overflow-hidden relative">
+        <!-- Decorative blobs — clamped so they never overflow on mobile -->
+        <div class="absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-blue-600/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pulse-slow pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-48 sm:w-72 h-48 sm:h-72 bg-blue-400/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pulse-slow pointer-events-none"></div>
 
         <div class="max-w-4xl mx-auto relative z-10 text-center">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-6">¿Tienes un proyecto en mente?</h2>
-            <p class="text-xl text-blue-100 mb-12 max-w-2xl mx-auto leading-relaxed">
-                Hablemos. Sin rollos técnicos, solo soluciones reales para que tu negocio crezca con la tecnología
-                correcta.
+            <span class="inline-block px-3 py-1.5 mb-5 text-xs font-bold tracking-widest text-blue-300 uppercase bg-blue-500/20 rounded-full border border-blue-400/30">
+                Sin costo · 15 minutos
+            </span>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-5 leading-tight">
+                ¿Listo para dejar de improvisar y construir algo que funcione?
+            </h2>
+            <p class="text-base sm:text-lg md:text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Una conversación de 15 minutos es suficiente para saber si puedo ayudarte.
+                Sin compromisos, sin tecnicismos — solo soluciones reales.
             </p>
 
-            <div class="flex flex-col md:flex-row gap-6 justify-center">
-                <a href="https://wa.me/5613591740"
-                    class="flex items-center justify-center gap-3 px-10 py-5 bg-green-500 hover:bg-green-600 text-white rounded-2xl font-extrabold text-xl transition-all transform hover:scale-105 shadow-xl">
-                    <svg class="w-8 h-8 font-normal" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/5613591740" id="cta-whatsapp"
+                   class="flex items-center justify-center gap-3 px-7 sm:px-10 py-4 sm:py-5 bg-green-500 hover:bg-green-600 text-white rounded-2xl font-extrabold text-base sm:text-lg transition-all transform hover:scale-105 shadow-xl">
+                    <svg class="w-6 h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
                     </svg>
-                    WhatsApp de Negocios
+                    Agendar por WhatsApp
                 </a>
-                <a href="mailto:hola@claudioariza.com"
-                    class="flex items-center justify-center px-10 py-5 bg-white text-slate-900 rounded-2xl font-extrabold text-xl hover:bg-blue-50 transition-all">
+                <a href="mailto:hola@claudioariza.com" id="cta-email"
+                   class="flex items-center justify-center px-7 sm:px-10 py-4 sm:py-5 bg-white text-slate-900 rounded-2xl font-extrabold text-base sm:text-lg hover:bg-blue-50 transition-all">
                     Enviar un correo
                 </a>
             </div>
         </div>
     </section>
 
-
-    <!-- Footer -->
-    <footer class="py-12 bg-white px-6 border-t border-slate-100">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm">
-            <div class="mb-4 md:mb-0">
-                &copy; 2026 Claudio Ariza. Ciudad de México.
+    <!-- ═══════════════════════════════════════════
+         FOOTER
+    ════════════════════════════════════════════ -->
+    <footer class="py-10 sm:py-12 bg-white px-4 sm:px-6 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-slate-400 text-sm text-center md:text-left">
+            <div>
+                <span class="text-blue-600 font-extrabold uppercase tracking-tighter text-base">CLAUDIO<span class="text-slate-900">ARIZA</span></span>
+                <span class="block sm:inline sm:ml-2 text-xs sm:text-sm">· Consultoría &amp; Desarrollo de Software · CDMX, México</span>
             </div>
-            <div class="flex space-x-6">
-                <a href="https://www.linkedin.com/in/claudio-ariza-balseca-865853226/" target="_blank"
-                    class="hover:text-blue-600">LinkedIn</a>
+            <div class="flex gap-5 sm:gap-6">
+                <a href="about.html"  class="hover:text-blue-600 transition">Sobre Mí</a>
+                <a href="https://www.linkedin.com/in/claudio-ariza-balseca-865853226/" target="_blank" class="hover:text-blue-600">LinkedIn</a>
                 <a href="https://github.com/claudioAB-dev" target="_blank" class="hover:text-blue-600">GitHub</a>
             </div>
         </div>
+        <div class="max-w-7xl mx-auto mt-4 text-slate-300 text-xs text-center md:text-left">
+            &copy; 2026 Claudio Ariza. Todos los derechos reservados.
+        </div>
     </footer>
 
-</body>
+    <!-- ═══════════════════════════════════════════
+         MOBILE NAV SCRIPT (lightweight, no deps)
+    ════════════════════════════════════════════ -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const lines      = menuToggle.querySelectorAll('.hamburger-line');
 
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            // Animate hamburger → X
+            lines[0].style.transform = 'translateY(6px) rotate(45deg)';
+            lines[1].style.opacity   = '0';
+            lines[2].style.transform = 'translateY(-6px) rotate(-45deg)';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            // Revert X → hamburger
+            lines[0].style.transform = '';
+            lines[1].style.opacity   = '';
+            lines[2].style.transform = '';
+        }
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+            isOpen ? closeMobileMenu() : openMobileMenu();
+        });
+
+        // Close menu when viewport widens past lg breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) closeMobileMenu();
+        });
+    </script>
+
+</body>
 </html>
