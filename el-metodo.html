@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>El Método | Academia Siglo XXI</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#ffb68e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1b1c19",
+                        "on-secondary-container": "#682c00",
+                        "on-surface-variant": "#45464d",
+                        "on-surface": "#1b1c19",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#faf9f4",
+                        "on-secondary-fixed-variant": "#763300",
+                        "on-primary-container": "#7c839b",
+                        "on-tertiary-container": "#75859d",
+                        "primary-fixed": "#dae2fd",
+                        "surface-dim": "#dbdad5",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#efeee9",
+                        "inverse-primary": "#bec6e0",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#30312e",
+                        "on-primary-fixed": "#131b2e",
+                        "on-error": "#ffffff",
+                        "tertiary": "#000000",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "surface-container-low": "#f5f4ef",
+                        "surface-container-highest": "#e3e3de",
+                        "surface-variant": "#e3e3de",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#331200",
+                        "outline-variant": "#c6c6cd",
+                        "secondary-container": "#fd8a42",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "primary-container": "#131b2e",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-primary": "#ffffff",
+                        "primary": "#000000",
+                        "surface-container-high": "#e9e8e3",
+                        "inverse-on-surface": "#f2f1ec",
+                        "secondary-fixed": "#ffdbca",
+                        "tertiary-container": "#0b1c30",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface-tint": "#565e74",
+                        "surface": "#faf9f4",
+                        "outline": "#76777d",
+                        "tertiary-fixed": "#d3e4fe",
+                        "on-error-container": "#93000a",
+                        "secondary": "#9b4500",
+                        "background": "#faf9f4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "title-lg": ["Inter"],
+                        "headline-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .active-nav {
+            border-bottom: 2px solid #9b4500;
+            padding-bottom: 4px;
+            color: #9b4500;
+        }
+
+        .gold-underline {
+            position: relative;
+        }
+
+        .gold-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #9b4500;
+            transition: width 0.3s ease;
+        }
+
+        .gold-underline:hover::after {
+            width: 100%;
+        }
+
+        .nav-item-active {
+            border-bottom: 1px solid #9b4500;
+        }
+
+        .transition-slow {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hero-mask {
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-primary font-body-md overflow-x-hidden">
+    <!-- Section 1: Header (TopNavBar) -->
+    <nav
+        class="bg-background dark:bg-background border-b border-outline-variant dark:border-outline fixed full-width top-0 z-50 w-full">
+        <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+            <a href="academia-siglo-xxi.html" class="flex items-center gap-4">
+                <img alt="Academia Siglo XXI" class="h-12 w-auto"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDGjwzpY8Uq5TIZV0VAXh1pxk3DwzSqe2ICey6tVGP73YCOkdFea2BR7ZFL_i79JBG8mK6shO_UJcpvmNir6FFnoiTA2ywbt8alRYW2MZPwMU6K_p8MmFVbD5S36EOA4dLMkSJOxwHZl82n5dbHRfy4tDiMwDUyBq3Gnw3bhpeBNq9B8pnDW_kd_Mqr06jQe-JrNYhHJJ5fT52l072mIynqcQPB9nqYMK1TVZyo2-I01TPwj24mDrcC-7cn2jycFhCjBuqFWKI5ec_">
+                <span
+                    class="font-headline-md text-headline-md text-primary dark:text-on-primary-fixed hidden lg:block">Academia
+                    Siglo XXI</span>
+            </a>
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="font-body-md text-label-md uppercase tracking-widest text-secondary dark:text-secondary-fixed border-b border-secondary"
+                    href="el-metodo.html">El Método</a>
+                <a class="font-body-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                    href="academia-siglo-xxi.html#padres">Para Padres</a>
+                <a class="font-body-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                    href="academia-siglo-xxi.html#estudiantes">Para Estudiantes</a>
+                <a class="font-body-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                    href="academia-siglo-xxi.html#temario">Temario</a>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <button
+                    class="bg-primary text-on-primary px-6 py-2 font-label-md text-label-md uppercase tracking-widest transition-slow scale-95 hover:scale-100 duration-200 hidden sm:block">
+                    Inscribirse
+                </button>
+                
+                <!-- Hamburger Menu Toggle -->
+                <button id="menu-toggle" aria-label="Abrir menú" aria-expanded="false"
+                    class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-surface-container-high transition">
+                    <span class="hamburger-line block w-5 h-0.5 bg-primary mb-1 transition-all duration-300"></span>
+                    <span class="hamburger-line block w-5 h-0.5 bg-primary mb-1 transition-all duration-300"></span>
+                    <span class="hamburger-line block w-5 h-0.5 bg-primary transition-all duration-300"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile dropdown menu -->
+        <div id="mobile-menu" class="hidden md:hidden overflow-hidden bg-background border-t border-outline-variant shadow-lg absolute left-0 right-0 top-full">
+            <div class="px-margin-mobile py-6 flex flex-col space-y-4 font-body-md text-label-md uppercase tracking-widest">
+                <a class="py-2 text-secondary font-bold border-b border-secondary" href="el-metodo.html" onclick="closeMobileMenu()">El Método</a>
+                <a class="py-2 text-on-surface-variant hover:text-secondary transition-colors duration-300" href="academia-siglo-xxi.html#padres" onclick="closeMobileMenu()">Para Padres</a>
+                <a class="py-2 text-on-surface-variant hover:text-secondary transition-colors duration-300" href="academia-siglo-xxi.html#estudiantes" onclick="closeMobileMenu()">Para Estudiantes</a>
+                <a class="py-2 text-on-surface-variant hover:text-secondary transition-colors duration-300" href="academia-siglo-xxi.html#temario" onclick="closeMobileMenu()">Temario</a>
+                <div class="pt-4 border-t border-outline-variant">
+                    <button class="w-full bg-primary text-on-primary py-3 font-label-md text-label-md uppercase tracking-widest">
+                        Inscribirse
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <!-- Hero & Philosophy Header -->
+        <section
+            class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-32 pb-24 md:pt-48 md:pb-32 flex flex-col items-center text-center">
+            <span class="font-label-md text-label-md text-secondary uppercase tracking-[0.2em] mb-4 fade-in">Filosofía
+                Pedagógica</span>
+            <h1 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg md:text-display-lg max-w-4xl mb-6 fade-in">Aprender a Pensar,
+                No a Memorizar</h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl fade-in">
+                Transformamos las matemáticas y las humanidades en un gimnasio para la mente, donde la razón es la
+                herramienta principal para navegar la incertidumbre del siglo XXI.
+            </p>
+        </section>
+        <!-- Visual Anchor 1: Columns -->
+        <section class="w-full relative h-[60vh] overflow-hidden fade-in">
+            <img alt="Classical Columns" class="w-full h-full object-cover hero-mask"
+                data-alt="A grand architectural view of white marble fluted columns in a classical style, bathed in natural sunlight. The perspective creates a sense of depth and stability, symbolizing the enduring foundations of knowledge. The lighting is crisp, highlighting the textures of the stone against a clear blue academic sky."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnNx0VXno9TWHE0_pw9nBGPsf7FrpAj5dpqMPIwhdom0rbSwiM6xWhwbHHF4GaQqw1NkkLE9scpTcw_Jdl4Bug-RMDLgh7Ul7wFLh0sJNT9TLAhmsVsbCodAm1DykRTX46yRqLLedOJXE9ClIcqRQ1HwrH9QB6CiIsZzNZrFhTHeuQh6Fzs9JM01cgmADDoJepgki0qwfox7qGzPhyjMERCcqM6AmutrOwonCTMrXObWYpInudazTLG91NU7LZ-ZwN1QfgByp19um6" />
+            <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-40"></div>
+        </section>
+        <!-- The 4 Pillars Grid -->
+        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-32 bg-surface">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+                <!-- Pillar 1 -->
+                <div
+                    class="border border-outline-variant p-10 flex flex-col gap-6 hover:bg-surface-container-low transition-colors duration-300 fade-in">
+                    <span class="material-symbols-outlined text-secondary text-4xl"
+                        data-icon="filter_alt">filter_alt</span>
+                    <h3 class="font-title-lg text-title-lg">La Duda Cartesiana</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">El pensamiento crítico comienza con la
+                        duda. Enseñamos a los estudiantes a filtrar la información mediante el rigor lógico de
+                        Descartes.</p>
+                </div>
+                <!-- Pillar 2 -->
+                <div
+                    class="border border-outline-variant p-10 flex flex-col gap-6 hover:bg-surface-container-low transition-colors duration-300 fade-in">
+                    <span class="material-symbols-outlined text-secondary text-4xl"
+                        data-icon="architecture">architecture</span>
+                    <h3 class="font-title-lg text-title-lg">Construcción Activa</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">No entregamos fórmulas; guiamos al
+                        alumno para que las derive. El conocimiento real se construye, no se recibe pasivamente.</p>
+                </div>
+                <!-- Pillar 3 -->
+                <div
+                    class="border border-outline-variant p-10 flex flex-col gap-6 hover:bg-surface-container-low transition-colors duration-300 fade-in">
+                    <span class="material-symbols-outlined text-secondary text-4xl" data-icon="forum">forum</span>
+                    <h3 class="font-title-lg text-title-lg">Dialéctica y Retórica</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">La argumentación es fundamental.
+                        Fomentamos el debate socrático para confrontar ideas y llegar a síntesis más profundas.</p>
+                </div>
+                <!-- Pillar 4 -->
+                <div
+                    class="border border-outline-variant p-10 flex flex-col gap-6 hover:bg-surface-container-low transition-colors duration-300 fade-in">
+                    <span class="material-symbols-outlined text-secondary text-4xl"
+                        data-icon="auto_stories">auto_stories</span>
+                    <h3 class="font-title-lg text-title-lg">Integración Cultural</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Conectamos la geometría con la
+                        filosofía de Euclides y Aristóteles, dotando de contexto humano al saber técnico.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Transition Banner: Plato Quote -->
+        <section class="bg-primary-container text-on-primary-container py-16 md:py-32 relative overflow-hidden">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center relative z-10">
+                <span class="material-symbols-outlined text-secondary-fixed text-6xl mb-8"
+                    style="font-variation-settings: 'FILL' 1;">format_quote</span>
+                <blockquote
+                    class="font-headline-md text-headline-md md:text-headline-lg italic max-w-4xl mx-auto mb-10 leading-relaxed fade-in">
+                    "Como en la academia de Platón, donde la inscripción dictaba 'Que no entre nadie que no sepa
+                    geometría', utilizamos la matemática como pilar para el desarrollo de la lógica esencial para el
+                    proyecto de vida de los jóvenes."
+                </blockquote>
+                <div class="w-16 h-1 bg-secondary mx-auto"></div>
+            </div>
+            <!-- Subtle background texture logic -->
+            <div class="absolute top-0 right-0 opacity-10 pointer-events-none">
+                <img alt="" class="w-[600px] grayscale invert"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuALFncGJ0--s-SJJsesDcEfiocP6WXFUIgS-NHX4iD2GjbujIUxFIG0UbExc5zQRPQMglEtLxjIM4ggN_P-L7T926cG0Fdj1_S5D63Atj5YatMH_14L29syYF3dEBtHakvkGHBl3sSm7GX5VUSguj36gBirFMwSpPNrPLbr1GHkvC7GEqb2b4dZFLr1aooy5CK-YFv6zMLJBLQ__mfBs-kPOZqXJgtM5XLUi5mqVy2yl9HEMHXkGWbjyy8UvKNDFwny7JSQvQBJ-ER3" />
+            </div>
+        </section>
+        <!-- Comparison Table & Tech Blend -->
+        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-32">
+            <div class="grid lg:grid-cols-2 gap-24 items-center">
+                <div class="fade-in">
+                    <h2 class="font-headline-lg text-headline-lg mb-12">Evolución Pedagógica</h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse border border-outline-variant">
+                            <thead>
+                                <tr class="bg-surface-container-low">
+                                    <th
+                                        class="p-6 text-left font-label-md text-label-md border-b border-outline-variant">
+                                        Criterio</th>
+                                    <th
+                                        class="p-6 text-left font-label-md text-label-md border-b border-outline-variant">
+                                        Método Tradicional</th>
+                                    <th
+                                        class="p-6 text-left font-label-md text-label-md border-b border-outline-variant text-secondary">
+                                        Método Siglo XXI</th>
+                                </tr>
+                            </thead>
+                            <tbody class="font-body-md">
+                                <tr class="hover:bg-surface-container-lowest transition-colors">
+                                    <td class="p-6 border-b border-outline-variant font-bold">Objetivo</td>
+                                    <td class="p-6 border-b border-outline-variant">Aprobar exámenes</td>
+                                    <td
+                                        class="p-6 border-b border-outline-variant text-secondary-container font-semibold">
+                                        Desarrollar criterio</td>
+                                </tr>
+                                <tr class="hover:bg-surface-container-lowest transition-colors">
+                                    <td class="p-6 border-b border-outline-variant font-bold">Herramienta</td>
+                                    <td class="p-6 border-b border-outline-variant">Repetición mecánica</td>
+                                    <td
+                                        class="p-6 border-b border-outline-variant text-secondary-container font-semibold">
+                                        Análisis algorítmico</td>
+                                </tr>
+                                <tr class="hover:bg-surface-container-lowest transition-colors">
+                                    <td class="p-6 border-b border-outline-variant font-bold">Contexto</td>
+                                    <td class="p-6 border-b border-outline-variant">Contenido aislado</td>
+                                    <td
+                                        class="p-6 border-b border-outline-variant text-secondary-container font-semibold">
+                                        Integración IA y Ética</td>
+                                </tr>
+                                <tr class="hover:bg-surface-container-lowest transition-colors">
+                                    <td class="p-6 font-bold">Resultado</td>
+                                    <td class="p-6">Conocimiento efímero</td>
+                                    <td class="p-6 text-secondary-container font-semibold">Sabiduría operativa</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="relative fade-in">
+                    <div class="border border-outline-variant p-4">
+                        <img alt="Study Space" class="w-full aspect-[4/3] object-cover"
+                            data-alt="A sophisticated home study or office space featuring a warm wooden desk, an open high-quality laptop, and classic antique books. The room is softly lit by a designer desk lamp and natural golden hour light streaming through a window. The setting represents the perfect harmony between traditional academic study and modern digital productivity."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCME5rszh-EmxGEydDqBikPM76IwRlxNEMYQxJsom0vrjRSepzHEufjrZIASTElLZL-u8fcvw_uPBrYrfW5t_zW0MZj87GTRqS6yzXrzJaS12apvsizsz9p5eURMMK5nJFLU3GH0_5k1ScX1vF5UeshoMuvWM_unkjkx5GrN9Y9tnKfrz0YaMa-iFoP-FTdwtyspPldxxTg8vOxSi6STujyykd2g-70ktUY3XRpHfqvB2GZgB1CfzFp83krJJpw3rVBec8EzR_UaHot" />
+                    </div>
+                    <div
+                        class="absolute -bottom-8 -left-8 bg-surface border border-outline-variant p-8 hidden md:block max-w-[280px]">
+                        <p class="font-body-md italic text-on-surface-variant">"La tecnología sin filosofía es ciega; la
+                            filosofía sin tecnología es impotente en la era actual."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Final CTA: The Seal -->
+        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 md:py-40 flex flex-col items-center text-center">
+            <div class="mb-12 fade-in">
+                <img alt="Seal of Academia Siglo XXI" class="w-48 h-48 mx-auto opacity-90"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuALFncGJ0--s-SJJsesDcEfiocP6WXFUIgS-NHX4iD2GjbujIUxFIG0UbExc5zQRPQMglEtLxjIM4ggN_P-L7T926cG0Fdj1_S5D63Atj5YatMH_14L29syYF3dEBtHakvkGHBl3sSm7GX5VUSguj36gBirFMwSpPNrPLbr1GHkvC7GEqb2b4dZFLr1aooy5CK-YFv6zMLJBLQ__mfBs-kPOZqXJgtM5XLUi5mqVy2yl9HEMHXkGWbjyy8UvKNDFwny7JSQvQBJ-ER3" />
+            </div>
+            <h2 class="font-headline-lg text-headline-lg mb-8 fade-in">Comience su Camino Hacia la Excelencia</h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12 fade-in">Las inscripciones para
+                el próximo ciclo académico están abiertas para estudiantes que buscan desafiar sus propios límites
+                intelectuales.</p>
+            <div class="flex gap-4 fade-in">
+                <button
+                    class="bg-primary text-on-primary px-10 py-4 font-label-md text-label-md hover:bg-secondary transition-all duration-300">Solicitar
+                    Información</button>
+                <button
+                    class="border border-primary text-primary px-10 py-4 font-label-md text-label-md hover:bg-surface-container-high transition-all duration-300">Ver
+                    Plan de Estudios</button>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer
+        class="bg-primary-container text-on-primary-container w-full py-12 px-margin-mobile md:px-margin-desktop flex flex-col items-center gap-10 border-t border-outline">
+        <div class="flex flex-col items-center gap-4">
+            <img alt="Academia Siglo XXI" class="h-16 w-auto grayscale invert"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuALFncGJ0--s-SJJsesDcEfiocP6WXFUIgS-NHX4iD2GjbujIUxFIG0UbExc5zQRPQMglEtLxjIM4ggN_P-L7T926cG0Fdj1_S5D63Atj5YatMH_14L29syYF3dEBtHakvkGHBl3sSm7GX5VUSguj36gBirFMwSpPNrPLbr1GHkvC7GEqb2b4dZFLr1aooy5CK-YFv6zMLJBLQ__mfBs-kPOZqXJgtM5XLUi5mqVy2yl9HEMHXkGWbjyy8UvKNDFwny7JSQvQBJ-ER3" />
+            <p class="font-headline-md text-on-primary-container">Academia Siglo XXI</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-8 font-label-md text-label-md">
+            <a class="text-on-primary-fixed-variant hover:underline decoration-secondary-fixed transition-all"
+                href="#">Privacidad</a>
+            <a class="text-on-primary-fixed-variant hover:underline decoration-secondary-fixed transition-all"
+                href="#">Ética Académica</a>
+            <a class="text-on-primary-fixed-variant hover:underline decoration-secondary-fixed transition-all"
+                href="#">Contacto</a>
+            <a class="text-on-primary-fixed-variant hover:underline decoration-secondary-fixed transition-all"
+                href="#">Estatutos</a>
+        </div>
+        <div class="text-center font-body-md text-on-primary-fixed-variant opacity-80 max-w-2xl">
+            <p>© 2024 Academia Siglo XXI. Excelencia en la Tradición, Innovación en la Razón.</p>
+        </div>
+    </footer>
+    <script>
+        // Micro-interactions and Fade-in Observer
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+            // Mobile Menu toggle script
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const lines      = menuToggle.querySelectorAll('.hamburger-line');
+
+            function openMobileMenu() {
+                mobileMenu.classList.remove('hidden');
+                menuToggle.setAttribute('aria-expanded', 'true');
+                lines[0].style.transform = 'translateY(6px) rotate(45deg)';
+                lines[1].style.opacity   = '0';
+                lines[2].style.transform = 'translateY(-6px) rotate(-45deg)';
+            }
+
+            function closeMobileMenu() {
+                mobileMenu.classList.add('hidden');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                lines[0].style.transform = '';
+                lines[1].style.opacity   = '';
+                lines[2].style.transform = '';
+            }
+
+            menuToggle.addEventListener('click', () => {
+                const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+                isOpen ? closeMobileMenu() : openMobileMenu();
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768) closeMobileMenu();
+            });
+        });
+    </script>
+</body>
+
+</html>

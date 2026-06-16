@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Academia Siglo XXI | Matemáticas y Humanidades</title>
+    <!-- Google Fonts: Playfair Display for Serifs, Inter for Sans-serif -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&amp;family=Inter:wght@300;400;600;700&amp;display=swap"
+        rel="stylesheet">
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#7c839b",
+                        "error-container": "#ffdad6",
+                        "outline": "#76777d",
+                        "surface-dim": "#dbdad5",
+                        "surface-container-low": "#f5f4ef",
+                        "error": "#ba1a1a",
+                        "secondary": "#9b4500",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-secondary-container": "#682c00",
+                        "surface-tint": "#565e74",
+                        "on-surface-variant": "#45464d",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface-container-highest": "#e3e3de",
+                        "outline-variant": "#c6c6cd",
+                        "surface-bright": "#faf9f4",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#131b2e",
+                        "inverse-surface": "#30312e",
+                        "on-secondary-fixed-variant": "#763300",
+                        "on-secondary-fixed": "#331200",
+                        "on-surface": "#1b1c19",
+                        "primary-fixed": "#dae2fd",
+                        "on-primary-fixed": "#131b2e",
+                        "tertiary-fixed": "#d3e4fe",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "surface-variant": "#e3e3de",
+                        "on-background": "#1b1c19",
+                        "background": "#faf9f4",
+                        "surface": "#faf9f4",
+                        "surface-container": "#efeee9",
+                        "tertiary-container": "#0b1c30",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface-container-high": "#e9e8e3",
+                        "inverse-primary": "#bec6e0",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#fd8a42",
+                        "secondary-fixed-dim": "#ffb68e",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#000000",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-secondary": "#ffffff",
+                        "primary": "#000000",
+                        "secondary-fixed": "#ffdbca",
+                        "on-tertiary-container": "#75859d",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Playfair Display"],
+                        "title-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .parchment-texture {
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        }
+
+        .gold-underline {
+            position: relative;
+        }
+
+        .gold-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #9b4500;
+            transition: width 0.3s ease;
+        }
+
+        .gold-underline:hover::after {
+            width: 100%;
+        }
+
+        .nav-item-active {
+            border-bottom: 1px solid #9b4500;
+        }
+
+        .transition-slow {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background text-on-background parchment-texture selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+    <!-- Section 1: Header (TopNavBar) -->
+    <nav
+        class="bg-background dark:bg-background border-b border-outline-variant dark:border-outline fixed full-width top-0 z-50 w-full">
+        <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+            <a href="academia-siglo-xxi.html" class="flex items-center gap-4">
+                <img alt="Academia Siglo XXI" class="h-12 w-auto"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDGjwzpY8Uq5TIZV0VAXh1pxk3DwzSqe2ICey6tVGP73YCOkdFea2BR7ZFL_i79JBG8mK6shO_UJcpvmNir6FFnoiTA2ywbt8alRYW2MZPwMU6K_p8MmFVbD5S36EOA4dLMkSJOxwHZl82n5dbHRfy4tDiMwDUyBq3Gnw3bhpeBNq9B8pnDW_kd_Mqr06jQe-JrNYhHJJ5fT52l072mIynqcQPB9nqYMK1TVZyo2-I01TPwj24mDrcC-7cn2jycFhCjBuqFWKI5ec_">
+                <span
+                    class="font-headline-md text-headline-md text-primary dark:text-on-primary-fixed hidden lg:block">Academia
+                    Siglo XXI</span>
+            </a>
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="font-body-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                    href="el-metodo.html">El Método</a>
+                <a class="font-body-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                    href="#">Para Padres</a>
+                <a class="font-body-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                    href="#">Para Estudiantes</a>
+                <a class="font-body-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                    href="#">Temario</a>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <button
+                    class="bg-primary text-on-primary px-6 py-2 font-label-md text-label-md uppercase tracking-widest transition-slow scale-95 hover:scale-100 duration-200 hidden sm:block">
+                    Inscribirse
+                </button>
+                
+                <!-- Hamburger Menu Toggle -->
+                <button id="menu-toggle" aria-label="Abrir menú" aria-expanded="false"
+                    class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-surface-container-high transition">
+                    <span class="hamburger-line block w-5 h-0.5 bg-primary mb-1 transition-all duration-300"></span>
+                    <span class="hamburger-line block w-5 h-0.5 bg-primary mb-1 transition-all duration-300"></span>
+                    <span class="hamburger-line block w-5 h-0.5 bg-primary transition-all duration-300"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile dropdown menu -->
+        <div id="mobile-menu" class="hidden md:hidden overflow-hidden bg-background border-t border-outline-variant shadow-lg absolute left-0 right-0 top-full">
+            <div class="px-margin-mobile py-6 flex flex-col space-y-4 font-body-md text-label-md uppercase tracking-widest">
+                <a class="py-2 text-on-surface-variant hover:text-secondary transition-colors duration-300" href="el-metodo.html" onclick="closeMobileMenu()">El Método</a>
+                <a class="py-2 text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#" onclick="closeMobileMenu()">Para Padres</a>
+                <a class="py-2 text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#" onclick="closeMobileMenu()">Para Estudiantes</a>
+                <a class="py-2 text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#" onclick="closeMobileMenu()">Temario</a>
+                <div class="pt-4 border-t border-outline-variant">
+                    <button class="w-full bg-primary text-on-primary py-3 font-label-md text-label-md uppercase tracking-widest">
+                        Inscribirse
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Section 2: Hero Section -->
+    <header class="pt-32 pb-20 md:pt-48 md:pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+            <div class="lg:col-span-7 z-10">
+                <span
+                    class="inline-block px-4 py-1 border border-secondary text-secondary font-label-md text-label-md uppercase tracking-widest mb-6">
+                    Excelencia Académica
+                </span>
+                <h1 class="font-display-lg text-headline-lg-mobile sm:text-display-lg text-primary mb-6 lg:text-8xl">
+                    Matemáticas para el siglo XXI
+                </h1>
+                <h2 class="font-title-lg text-title-lg text-on-surface-variant mb-8 max-w-xl">
+                    Habilidades Lógico-Deductivas y Pensamiento Crítico en la Era de la IA
+                </h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl">
+                    Un curso revolucionario que trasciende la simple aritmética. No enseñamos a memorizar fórmulas;
+                    formamos mentes lógicas preparadas para los desafíos del futuro.<br></p>
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <button
+                        class="bg-secondary text-on-secondary px-8 py-4 font-label-md text-label-md uppercase tracking-widest transition-slow hover:bg-secondary-container hover:text-on-secondary-container">
+                        Descubre nuestro método
+                    </button>
+                    <button
+                        class="border border-primary text-primary px-8 py-4 font-label-md text-label-md uppercase tracking-widest transition-slow hover:bg-surface-container">
+                        Ver Temario
+                    </button>
+                </div>
+            </div>
+            <div class="lg:col-span-5 relative mt-12 lg:mt-0">
+                <div class="aspect-square relative flex items-center justify-center">
+                    <div class="absolute inset-0 bg-secondary/5 rounded-full animate-pulse"></div>
+                    <img alt="Academia Seal"
+                        class="w-full h-auto opacity-20 lg:opacity-100 transform lg:scale-125 hover:rotate-3 transition-transform duration-700"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDGjwzpY8Uq5TIZV0VAXh1pxk3DwzSqe2ICey6tVGP73YCOkdFea2BR7ZFL_i79JBG8mK6shO_UJcpvmNir6FFnoiTA2ywbt8alRYW2MZPwMU6K_p8MmFVbD5S36EOA4dLMkSJOxwHZl82n5dbHRfy4tDiMwDUyBq3Gnw3bhpeBNq9B8pnDW_kd_Mqr06jQe-JrNYhHJJ5fT52l072mIynqcQPB9nqYMK1TVZyo2-I01TPwj24mDrcC-7cn2jycFhCjBuqFWKI5ec_">
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Section 3: Dos Perspectivas (Split Cards) -->
+    <section
+        class="py-16 md:py-24 bg-surface-container-low border-y border-outline-variant transition-all duration-1000 opacity-100 translate-y-0">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Card 1: Padres -->
+                <div
+                    class="p-12 border border-outline/20 bg-background relative group overflow-hidden transition-slow hover:border-secondary/40">
+                    <div
+                        class="absolute top-0 right-0 p-8 text-secondary/10 group-hover:text-secondary/20 transition-slow">
+                        <span class="material-symbols-outlined text-8xl"
+                            style="font-variation-settings: 'FILL' 1;">family_restroom</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-primary mb-6">Para Padres</h3>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+                        Una inversión estratégica en el futuro intelectual y profesional de sus hijos.
+                    </p>
+                    <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        En un mundo donde la IA automatiza las tareas técnicas, la única ventaja competitiva es el
+                        razonamiento estructurado. Preparamos a sus hijos no para pasar un examen, sino para liderar la
+                        conversación técnica del mañana.
+                    </p>
+                </div>
+                <!-- Card 2: Estudiantes -->
+                <div
+                    class="p-12 border border-outline/20 bg-background relative group overflow-hidden transition-slow hover:border-secondary/40">
+                    <div
+                        class="absolute top-0 right-0 p-8 text-secondary/10 group-hover:text-secondary/20 transition-slow">
+                        <span class="material-symbols-outlined text-8xl"
+                            style="font-variation-settings: 'FILL' 1;">school</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-primary mb-6">Para Estudiantes</h3>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-6 italic">
+                        "¿Sabías que la duda es tu nuevo superpoder?"
+                    </p>
+                    <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Desafiamos la matemática convencional basada en la repetición. Inspirados en Descartes, te
+                        enseñamos a cuestionar los axiomas, a construir pruebas desde cero y a convertir la lógica en tu
+                        herramienta más afilada.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 4: Philosophy & Method (3 Pillars) -->
+    <section
+        class="py-16 md:py-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto transition-all duration-1000 opacity-100 translate-y-0">
+        <div class="text-center mb-20">
+            <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Los Tres Pilares del Conocimiento</h2>
+            <div class="w-24 h-1 bg-secondary mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+            <!-- Pillar 1 -->
+            <div class="text-center flex flex-col items-center">
+                <div class="mb-8 w-20 h-20 flex items-center justify-center border border-outline/30 rounded-full">
+                    <span class="material-symbols-outlined text-primary text-4xl">extension</span>
+                </div>
+                <h4 class="font-title-lg text-title-lg text-primary mb-4">Más allá de la herramienta</h4>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                    Resolución abstracta de problemas. Aprendemos a descomponer la complejidad en átomos lógicos
+                    manejables.
+                </p>
+            </div>
+            <!-- Pillar 2 -->
+            <div class="text-center flex flex-col items-center">
+                <div class="mb-8 w-20 h-20 flex items-center justify-center border border-outline/30 rounded-full">
+                    <span class="material-symbols-outlined text-primary text-4xl">menu_book</span>
+                </div>
+                <h4 class="font-title-lg text-title-lg text-primary mb-4">Dialéctica y Retórica</h4>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                    Lecturas clásicas de Aristóteles y Euclides para entender que la matemática es el lenguaje de la
+                    verdad absoluta.
+                </p>
+            </div>
+            <!-- Pillar 3 -->
+            <div class="text-center flex flex-col items-center">
+                <div class="mb-8 w-20 h-20 flex items-center justify-center border border-outline/30 rounded-full">
+                    <span class="material-symbols-outlined text-primary text-4xl">trending_up</span>
+                </div>
+                <h4 class="font-title-lg text-title-lg text-primary mb-4">Aplicación Real</h4>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                    Lógica proposicional aplicada a las finanzas modernas, el emprendimiento y la toma de decisiones
+                    estratégicas.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Section 5: Syllabus (Elegant Grid) -->
+    <section class="py-16 md:py-24 bg-surface-dim/30 transition-all duration-1000 opacity-100 translate-y-0">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-primary mb-8">Estructura Académica</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
+                        Nuestro temario está diseñado como una escalera hacia la sabiduría, donde cada peldaño refuerza
+                        la base lógica del anterior.
+                    </p>
+                    <div class="space-y-4">
+                        <div
+                            class="p-6 border-b border-outline/20 flex justify-between items-center group cursor-pointer hover:bg-background transition-slow">
+                            <span class="font-title-lg text-title-lg text-primary">I. Aritmética y geometría</span>
+                            <span
+                                class="material-symbols-outlined text-secondary group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                        </div>
+                        <div
+                            class="p-6 border-b border-outline/20 flex justify-between items-center group cursor-pointer hover:bg-background transition-slow">
+                            <span class="font-title-lg text-title-lg text-primary">II. Álgebra</span>
+                            <span
+                                class="material-symbols-outlined text-secondary group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                        </div>
+                        <div
+                            class="p-6 border-b border-outline/20 flex justify-between items-center group cursor-pointer hover:bg-background transition-slow">
+                            <span class="font-title-lg text-title-lg text-primary">III. Estadística</span>
+                            <span
+                                class="material-symbols-outlined text-secondary group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                        </div>
+                        <div
+                            class="p-6 border-b border-outline/20 flex justify-between items-center group cursor-pointer hover:bg-background transition-slow">
+                            <span class="font-title-lg text-title-lg text-primary">IV. Pre-calculo</span>
+                            <span
+                                class="material-symbols-outlined text-secondary group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img class="w-full aspect-[3/4] object-cover grayscale hover:grayscale-0 transition-slow"
+                        data-alt="Close up of a classic fountain pen resting on a handwritten manuscript of mathematical proofs and equations. The lighting is warm and dramatic, highlighting the texture of the old parchment paper and the intricate script. This visual embodies a neo-classical academic aesthetic with a palette of deep navy inks and cream surfaces."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA33Oq8T5Qjr_iP3vPN1X9X8hTVgi_k-s1aKiHrpZsukJwmvjTaGgOC6_uKdFaUN7K8wyw6L2EICzXDCbwq70rYAAOfHxzUTgGMSVC9ocHu-dFUCAnSwoqumZGczIUhPSsTnDoZiM8iCCVpmg2bHQueTrm1Gmpvmd6fI6T-0xkseW-Eh_YXcTBC-5pjShO8qM1ygxFbZeNWZkVar3dttWyqtVA58ADOnXxWJGl-HzC8XwXweTI982SPrJNauZA8SG5JXGoESLrMOkcf">
+                    <img class="w-full aspect-[3/4] object-cover mt-12 grayscale hover:grayscale-0 transition-slow"
+                        data-alt="A modern office or library setting where a laptop screen shows complex data visualizations and logical flowcharts. In the background, out-of-focus bookshelves filled with leather-bound volumes create a bridge between digital technology and classical knowledge. The scene is bathed in a bright light-mode aesthetic with subtle gold and slate tones."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRjLfh_lP2Z55T9qt90uxSZyou4txS2xGPjBSb0er2u_S5Y-fRZE0BdhsHAt7oyQUMF535pTpfv9NQMPv_UE-MSNXKVpgb8ozO1q1tm6LaWuCMby2Tj-WE0gr5649PFeZczeHrFe6aS47vtwZ_9KUS7Mxnbnqg9_TRkB_e04NjzjBYLGKoxvrvIsB2997rnDeO8yaGisCC0zKNq8X2KGpWhmci0z71LrSm6IboNRw2_Bk65My3aH-DZGlbDKQZnms_hL_AyomqBFkg">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 6: Historical Quotes -->
+    <section
+        class="py-16 md:py-32 bg-primary text-on-primary text-center px-margin-mobile md:px-margin-desktop transition-all duration-1000 opacity-100 translate-y-0">
+        <div class="max-w-4xl mx-auto space-y-24">
+            <div class="relative">
+                <span class="material-symbols-outlined text-8xl absolute -top-16 left-0 opacity-10"
+                    style="font-variation-settings: 'FILL' 1;">format_quote</span>
+                <blockquote class="font-headline-lg text-headline-lg italic leading-tight mb-6">
+                    "No basta tener buen ingenio; lo principal es aplicarlo bien."
+                </blockquote>
+                <cite class="font-label-md text-label-md uppercase tracking-[0.2em] text-on-primary-container">— René
+                    Descartes</cite>
+            </div>
+            <div class="relative">
+                <span class="material-symbols-outlined text-8xl absolute -top-16 right-0 opacity-10"
+                    style="font-variation-settings: 'FILL' 1;">format_quote</span>
+                <blockquote class="font-headline-lg text-headline-lg italic leading-tight mb-6">
+                    "Las matemáticas son la gimnasia del espíritu..."
+                </blockquote>
+                <cite class="font-label-md text-label-md uppercase tracking-[0.2em] text-on-primary-container">—
+                    Isócrates</cite>
+            </div>
+        </div>
+    </section>
+    <!-- CTA Section -->
+    <section
+        class="py-16 md:py-24 px-margin-mobile md:px-margin-desktop text-center bg-background border-t border-outline-variant transition-all duration-1000 opacity-100 translate-y-0">
+        <h2 class="font-display-lg text-headline-lg text-primary mb-8">¿Listo para transformar tu pensamiento?</h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto">
+            Las inscripciones para el próximo ciclo académico ya están abiertas. Únete a la élite intelectual del siglo
+            XXI.
+        </p>
+        <button
+            class="bg-secondary text-on-secondary px-12 py-5 font-label-md text-label-md uppercase tracking-widest transition-slow hover:scale-105 active:scale-95">
+            Reservar Entrevista de Ingreso
+        </button>
+    </section>
+    <!-- Section 7: Footer -->
+    <footer
+        class="bg-surface-container dark:bg-surface-container-highest border-t border-outline-variant full-width pb-12 pt-16 md:pt-20">
+        <div
+            class="flex flex-col md:flex-row justify-between items-start px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto gap-12">
+            <div class="max-w-md">
+                <div class="font-headline-md text-headline-md text-primary mb-4">Academia Siglo XXI</div>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                    Forjando el intelecto de los líderes del futuro a través de la unión de las matemáticas clásicas y
+                    la tecnología moderna.
+                </p>
+                <div class="flex gap-4">
+                    <a class="text-primary hover:text-secondary transition-colors" href="mailto:hola@claudioariza.com">
+                        <span class="material-symbols-outlined">mail</span>
+                    </a>
+                    <a class="text-primary hover:text-secondary transition-colors" href="#">
+                        <span class="material-symbols-outlined">share</span>
+                    </a>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-16">
+                <div>
+                    <h5 class="font-label-md text-label-md uppercase tracking-widest text-primary mb-6">Navegación</h5>
+                    <ul class="space-y-4">
+                        <li class=""><a
+                                class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors"
+                                href="#">Privacidad</a></li>
+                        <li class=""><a
+                                class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors"
+                                href="#">Términos y Condiciones</a></li>
+                        <li class=""><a
+                                class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors"
+                                href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-label-md text-label-md uppercase tracking-widest text-primary mb-6">Ubicación</h5>
+                    <p class="font-body-md text-body-md text-on-surface-variant">
+                        Campus Virtual Global<br>
+                        Sede Central: Ciudad de</p>
+                    <div class="">méxico</div>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-16 pt-8 border-t border-outline/10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="font-body-md text-body-md text-on-surface-variant">© 2027 Claudio Ariza Balseca. Todos los
+                derechos reservados.</p>
+            <div class="flex gap-6">
+                <span class="font-body-md text-body-md text-on-surface-variant opacity-50">Fundada en el Siglo
+                    XXI</span>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Smooth scroll interaction or micro-interactions can go here
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+                // Ripple effect or simple console log for tracking
+                console.log('Action initiated at', x, y);
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(el => {
+            el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-8');
+            observer.observe(el);
+        });
+
+        // Mobile Menu toggle script
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const lines      = menuToggle.querySelectorAll('.hamburger-line');
+
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            lines[0].style.transform = 'translateY(6px) rotate(45deg)';
+            lines[1].style.opacity   = '0';
+            lines[2].style.transform = 'translateY(-6px) rotate(-45deg)';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            lines[0].style.transform = '';
+            lines[1].style.opacity   = '';
+            lines[2].style.transform = '';
+        }
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+            isOpen ? closeMobileMenu() : openMobileMenu();
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) closeMobileMenu();
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>
