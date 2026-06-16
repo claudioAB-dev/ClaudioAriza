@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Temario | Academia Siglo XXI</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e3e3de",
+                        "surface": "#faf9f4",
+                        "background": "#faf9f4",
+                        "inverse-primary": "#bec6e0",
+                        "tertiary-container": "#0b1c30",
+                        "surface-container-low": "#f5f4ef",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e3e3de",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface-bright": "#faf9f4",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#75859d",
+                        "secondary-container": "#fd8a42",
+                        "outline": "#76777d",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "primary-container": "#131b2e",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#000000",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "inverse-surface": "#30312e",
+                        "tertiary-fixed": "#d3e4fe",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#efeee9",
+                        "outline-variant": "#c6c6cd",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#dae2fd",
+                        "primary": "#000000",
+                        "surface-dim": "#dbdad5",
+                        "secondary-fixed-dim": "#ffb68e",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-surface-variant": "#45464d",
+                        "secondary-fixed": "#ffdbca",
+                        "secondary": "#9b4500",
+                        "on-secondary-fixed-variant": "#763300",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-primary-container": "#7c839b",
+                        "on-error-container": "#93000a",
+                        "on-background": "#1b1c19",
+                        "on-secondary-fixed": "#331200",
+                        "surface-container-high": "#e9e8e3",
+                        "on-secondary-container": "#682c00",
+                        "surface-tint": "#565e74",
+                        "on-primary-fixed": "#131b2e",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1b1c19",
+                        "inverse-on-surface": "#f2f1ec"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Inter"],
+                        "headline-lg": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+        }
+
+        .accordion-item.active .icon-rotate {
+            transform: rotate(180deg);
+        }
+
+        .line-accent {
+            position: relative;
+        }
+
+        .line-accent::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #9b4500;
+        }
+
+        .parchment-texture {
+            background-image: url("https://www.transparenttextures.com/patterns/paper.png");
+        }
+    </style>
+</head>
+
+<body
+    class="bg-surface text-on-surface parchment-texture font-body-md selection:bg-secondary/20 selection:text-secondary">
+    <!-- Top Navigation Bar -->
+    <header class="w-full top-0 sticky z-50 bg-surface/95 backdrop-blur-sm border-b border-outline-variant/30">
+        <nav
+            class="bg-background dark:bg-background border-b border-outline-variant dark:border-outline fixed full-width top-0 z-50 w-full">
+            <div
+                class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+                <a href="academia-siglo-xxi.html" class="flex items-center gap-4">
+                    <img alt="Academia Siglo XXI" class="h-12 w-auto"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDGjwzpY8Uq5TIZV0VAXh1pxk3DwzSqe2ICey6tVGP73YCOkdFea2BR7ZFL_i79JBG8mK6shO_UJcpvmNir6FFnoiTA2ywbt8alRYW2MZPwMU6K_p8MmFVbD5S36EOA4dLMkSJOxwHZl82n5dbHRfy4tDiMwDUyBq3Gnw3bhpeBNq9B8pnDW_kd_Mqr06jQe-JrNYhHJJ5fT52l072mIynqcQPB9nqYMK1TVZyo2-I01TPwj24mDrcC-7cn2jycFhCjBuqFWKI5ec_">
+                    <span
+                        class="font-headline-md text-headline-md text-primary dark:text-on-primary-fixed hidden lg:block">Academia
+                        Siglo XXI</span>
+                </a>
+                <div class="hidden md:flex gap-8 items-center">
+                    <a class="font-body-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                        href="el-metodo.html">El Método</a>
+                    <a class="font-body-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                        href="academia-siglo-xxi.html#padres">Para Padres</a>
+                    <a class="font-body-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                        href="academia-siglo-xxi.html#estudiantes">Para Estudiantes</a>
+                    <a class="font-body-md text-label-md uppercase tracking-widest text-secondary dark:text-secondary-fixed border-b border-secondary"
+                        href="temario.html">Temario</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <button
+                        class="bg-primary text-on-primary px-6 py-2 font-label-md text-label-md uppercase tracking-widest transition-slow scale-95 hover:scale-100 duration-200 hidden sm:block">
+                        Inscribirse
+                    </button>
+
+                    <!-- Hamburger Menu Toggle -->
+                    <button id="menu-toggle" aria-label="Abrir menú" aria-expanded="false"
+                        class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-surface-container-high transition">
+                        <span class="hamburger-line block w-5 h-0.5 bg-primary mb-1 transition-all duration-300"></span>
+                        <span class="hamburger-line block w-5 h-0.5 bg-primary mb-1 transition-all duration-300"></span>
+                        <span class="hamburger-line block w-5 h-0.5 bg-primary transition-all duration-300"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile dropdown menu -->
+            <div id="mobile-menu"
+                class="hidden md:hidden overflow-hidden bg-background border-t border-outline-variant shadow-lg absolute left-0 right-0 top-full">
+                <div
+                    class="px-margin-mobile py-6 flex flex-col space-y-4 font-body-md text-label-md uppercase tracking-widest">
+                    <a class="py-2 text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                        href="el-metodo.html" onclick="closeMobileMenu()">El Método</a>
+                    <a class="py-2 text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                        href="academia-siglo-xxi.html#padres" onclick="closeMobileMenu()">Para Padres</a>
+                    <a class="py-2 text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                        href="academia-siglo-xxi.html#estudiantes" onclick="closeMobileMenu()">Para Estudiantes</a>
+                    <a
+                        class="px-margin-mobile py-6 flex flex-col space-y-4 font-body-md text-label-md uppercase tracking-widest">
+                        href="temario.html" onclick="closeMobileMenu()">Temario</a>
+                    <div class="pt-4 border-t border-outline-variant">
+                        <button
+                            class="w-full bg-primary text-on-primary py-3 font-label-md text-label-md uppercase tracking-widest">
+                            Inscribirse
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20">
+        <!-- Header Section -->
+        <section class="mb-24 max-w-3xl">
+            <br>
+            <br>
+            <span class="font-label-md text-label-md text-secondary uppercase tracking-[0.2em] mb-4 block">UN CURRÍCULO
+                VIVO</span>
+            <h1 class="font-display-lg text-display-lg md:text-display-lg text-primary mb-8 leading-tight">
+                Un Temario Centrado en el <span class="italic font-normal">Estudiante</span>
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                Nuestra propuesta pedagógica no es un monolito estático. Entendemos el aprendizaje como una conversación
+                bilateral: un sistema flexible que respeta la curiosidad intelectual del estudiante mientras mantiene el
+                rigor de la tradición clásica.
+            </p>
+        </section>
+        <!-- Featured Block: Library -->
+        <section class="mb-24">
+            <div
+                class="relative overflow-hidden bg-primary-container text-on-primary-container p-10 md:p-16 border border-outline-variant/10 group">
+                <div class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
+                    <span class="material-symbols-outlined text-[240px]"
+                        style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+                </div>
+                <div class="relative z-10 flex flex-col md:flex-row gap-12 items-center">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div
+                                class="w-12 h-12 flex items-center justify-center border border-secondary text-secondary">
+                                <span class="material-symbols-outlined"
+                                    style="font-variation-settings: 'FILL' 1;">library_books</span>
+                            </div>
+                            <h2 class="font-headline-md text-headline-md text-on-primary">Construyendo tu Biblioteca
+                                Personal</h2>
+                        </div>
+                        <p class="font-body-md text-body-md text-on-primary-container/80 mb-8 max-w-2xl">
+                            La excelencia académica trasciende la pantalla. Como parte de nuestro compromiso con la
+                            profundidad intelectual, cada mes recibirás en tu domicilio una obra fundamental
+                            encuadernada en edición de coleccionista. El objetivo final es que, al egresar, poseas no
+                            solo el conocimiento, sino una biblioteca física que testifique tu trayectoria vital.
+                        </p>
+                        <button
+                            class="flex items-center gap-2 text-secondary font-label-md uppercase tracking-widest text-xs group-hover:gap-4 transition-all">
+                            Saber más sobre el envío mensual
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+                    <div
+                        class="w-full md:w-80 aspect-[3/4] border border-outline-variant/30 p-2 overflow-hidden bg-surface-container-low">
+                        <img alt="Luxury Academic Books"
+                            class="w-full h-full object-cover grayscale contrast-125 opacity-80"
+                            data-alt="A close-up photograph of several antique leather-bound books stacked on a wooden desk. The lighting is warm and directional, reminiscent of a classical library atmosphere with deep shadows and golden highlights. The books have intricate gold foil detailing on their spines, evoking a sense of prestigious academic history and enduring value. The overall mood is quiet, focused, and intellectually sophisticated, consistent with a high-end corporate minimalist aesthetic."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuATOew6gVRFeotP7nMy2GJjFBnWBhuc_MPf17ndm1xRvrB-49g6STCZkF0iD-vQN77Ic1HJI_sK2bkwkVjfMA91xrhdX9iPmd5IRBm8gQrfuOtzhCNuRh5rExO4tDLrVq2dFpFa5EiUgujEn8punndz0LXQ17mXxXMaSKi-2K2CqOuVh1Hh-S2Afpq8DUN1yU69kUx9erAPW_fTUN18qf2-Fh5AEjtTlqmXx13QPTV07dOiWdRJnGZaJcapRcr4gYsSXEt9Wbt-Hg-m" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Interactive Syllabus -->
+        <section class="mb-24">
+            <h3 class="font-headline-md text-headline-md text-primary mb-12 flex items-center gap-4">
+                Estructura del Programa
+                <span class="h-px flex-1 bg-outline-variant/30"></span>
+            </h3>
+            <div class="space-y-6">
+                <!-- Módulo I -->
+                <div class="accordion-item border-b border-outline-variant/50 pb-6 group active"
+                    onclick="this.classList.toggle('active')">
+                    <button class="w-full flex justify-between items-center py-4 text-left cursor-pointer">
+                        <div class="flex items-start gap-6">
+                            <span class="font-label-md text-label-md text-secondary opacity-50">01</span>
+                            <div>
+                                <h4
+                                    class="font-title-lg text-title-lg text-primary group-hover:text-secondary transition-colors">
+                                    Módulo I: Aritmética, Geometría y Filosofía Básica</h4>
+                                <p class="font-body-md text-on-surface-variant mt-1">Los fundamentos ontológicos del
+                                    número y la forma.</p>
+                            </div>
+                        </div>
+                        <span
+                            class="material-symbols-outlined icon-rotate transition-transform duration-300 text-outline">expand_more</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="pl-16 pt-4 grid md:grid-cols-2 gap-x-12 gap-y-4">
+                            <div class="flex items-center gap-4 group/item">
+                                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                <span
+                                    class="font-body-md text-on-surface group-hover/item:translate-x-1 transition-transform">¿Cómo
+                                    pensamos?</span>
+                            </div>
+                            <div class="flex items-center gap-4 group/item">
+                                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                <span
+                                    class="font-body-md text-on-surface group-hover/item:translate-x-1 transition-transform">¿Por
+                                    qué contamos?</span>
+                            </div>
+                            <div class="flex items-center gap-4 group/item">
+                                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                <span
+                                    class="font-body-md text-on-surface group-hover/item:translate-x-1 transition-transform">¿Existen
+                                    los medios números?</span>
+                            </div>
+                            <div class="flex items-center gap-4 group/item">
+                                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                <span
+                                    class="font-body-md text-on-surface group-hover/item:translate-x-1 transition-transform">Triángulos
+                                    y ángulos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Módulo II -->
+                <div class="accordion-item border-b border-outline-variant/50 pb-6 group"
+                    onclick="this.classList.toggle('active')">
+                    <button class="w-full flex justify-between items-center py-4 text-left cursor-pointer">
+                        <div class="flex items-start gap-6">
+                            <span class="font-label-md text-label-md text-secondary opacity-50">02</span>
+                            <div>
+                                <h4
+                                    class="font-title-lg text-title-lg text-primary group-hover:text-secondary transition-colors">
+                                    Módulo II: Álgebra y Lógica Proposicional</h4>
+                                <p class="font-body-md text-on-surface-variant mt-1">El lenguaje simbólico y la
+                                    estructura del argumento.</p>
+                            </div>
+                        </div>
+                        <span
+                            class="material-symbols-outlined icon-rotate transition-transform duration-300 text-outline">expand_more</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="pl-16 pt-4 grid md:grid-cols-2 gap-x-12 gap-y-4">
+                            <div class="flex items-center gap-4 group/item">
+                                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                <span
+                                    class="font-body-md text-on-surface group-hover/item:translate-x-1 transition-transform">Lógica
+                                    proposicional</span>
+                            </div>
+                            <div class="flex items-center gap-4 group/item">
+                                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                <span
+                                    class="font-body-md text-on-surface group-hover/item:translate-x-1 transition-transform">Argumentación</span>
+                            </div>
+                            <div class="flex items-center gap-4 group/item">
+                                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                <span
+                                    class="font-body-md text-on-surface group-hover/item:translate-x-1 transition-transform">Derivación
+                                    de reglas algebraicas</span>
+                            </div>
+                            <div class="flex items-center gap-4 group/item">
+                                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                <span
+                                    class="font-body-md text-on-surface group-hover/item:translate-x-1 transition-transform">¿Cómo
+                                    se inventó el álgebra?</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Módulo III -->
+                <div class="accordion-item border-b border-outline-variant/50 pb-6 group"
+                    onclick="this.classList.toggle('active')">
+                    <button class="w-full flex justify-between items-center py-4 text-left cursor-pointer">
+                        <div class="flex items-start gap-6">
+                            <span class="font-label-md text-label-md text-secondary opacity-50">03</span>
+                            <div>
+                                <h4
+                                    class="font-title-lg text-title-lg text-primary group-hover:text-secondary transition-colors">
+                                    Módulo III: Estadística y Razonamiento Crítico</h4>
+                                <p class="font-body-md text-on-surface-variant mt-1">Navegando la incertidumbre a través
+                                    de los datos.</p>
+                            </div>
+                        </div>
+                        <span
+                            class="material-symbols-outlined icon-rotate transition-transform duration-300 text-outline">expand_more</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="pl-16 pt-4 grid md:grid-cols-2 gap-x-12 gap-y-4">
+                            <div class="flex items-center gap-4 group/item">
+                                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                <span
+                                    class="font-body-md text-on-surface group-hover/item:translate-x-1 transition-transform">Falacias
+                                    lógicas</span>
+                            </div>
+                            <div class="flex items-center gap-4 group/item">
+                                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                <span
+                                    class="font-body-md text-on-surface group-hover/item:translate-x-1 transition-transform">Moda,
+                                    media y mediana</span>
+                            </div>
+                            <div class="flex items-center gap-4 group/item">
+                                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                <span
+                                    class="font-body-md text-on-surface group-hover/item:translate-x-1 transition-transform">Argumentación
+                                    basada en datos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Módulo IV -->
+                <div class="accordion-item border-b border-outline-variant/50 pb-6 group"
+                    onclick="this.classList.toggle('active')">
+                    <button class="w-full flex justify-between items-center py-4 text-left cursor-pointer">
+                        <div class="flex items-start gap-6">
+                            <span class="font-label-md text-label-md text-secondary opacity-50">04</span>
+                            <div>
+                                <h4
+                                    class="font-title-lg text-title-lg text-primary group-hover:text-secondary transition-colors">
+                                    Módulo IV: Pre-cálculo y Matemáticas Aplicadas</h4>
+                                <p class="font-body-md text-on-surface-variant mt-1">La síntesis funcional para el mundo
+                                    moderno.</p>
+                            </div>
+                        </div>
+                        <span
+                            class="material-symbols-outlined icon-rotate transition-transform duration-300 text-outline">expand_more</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="pl-16 pt-4 grid md:grid-cols-2 gap-x-12 gap-y-4">
+                            <div class="flex items-center gap-4 group/item">
+                                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                <span
+                                    class="font-body-md text-on-surface group-hover/item:translate-x-1 transition-transform">Funciones
+                                    lineales y cuadráticas</span>
+                            </div>
+                            <div class="flex items-center gap-4 group/item">
+                                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                <span
+                                    class="font-body-md text-on-surface group-hover/item:translate-x-1 transition-transform">Aplicaciones
+                                    en contabilidad y economía</span>
+                            </div>
+                            <div class="flex items-center gap-4 group/item">
+                                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                <span
+                                    class="font-body-md text-on-surface group-hover/item:translate-x-1 transition-transform">Finanzas
+                                    y emprendimiento</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer Note -->
+        <footer class="mt-32 max-w-2xl mx-auto text-center">
+            <p
+                class="font-body-md italic text-on-surface-variant border-t border-outline-variant/30 pt-12 leading-relaxed">
+                "Además de las matemáticas, el curso integra lecciones de antropología, historia, física y filosofía
+                para facilitar la comprensión de la historia del conocimiento."
+            </p>
+            <div class="mt-12 flex justify-center gap-8">
+                <span class="material-symbols-outlined text-outline/30 scale-125">account_balance</span>
+                <span class="material-symbols-outlined text-outline/30 scale-125">auto_stories</span>
+                <span class="material-symbols-outlined text-outline/30 scale-125">school</span>
+            </div>
+        </footer>
+    </main>
+    <!-- Global Footer Component -->
+    <footer
+        class="bg-surface-container dark:bg-surface-container-highest border-t border-outline-variant full-width pb-12 pt-16 md:pt-20">
+        <div
+            class="flex flex-col md:flex-row justify-between items-start px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto gap-12">
+            <div class="max-w-md">
+                <div class="font-headline-md text-headline-md text-primary mb-4">Academia Siglo XXI</div>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                    Forjando el intelecto de los líderes del futuro a través de la unión de las matemáticas clásicas y
+                    la tecnología moderna.
+                </p>
+                <div class="flex gap-4">
+                    <a class="text-primary hover:text-secondary transition-colors" href="mailto:hola@claudioariza.com">
+                        <span class="material-symbols-outlined">mail</span>
+                    </a>
+                    <a class="text-primary hover:text-secondary transition-colors" href="#">
+                        <span class="material-symbols-outlined">share</span>
+                    </a>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-16">
+                <div>
+                    <h5 class="font-label-md text-label-md uppercase tracking-widest text-primary mb-6">Navegación</h5>
+                    <ul class="space-y-4">
+                        <li class=""><a
+                                class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors"
+                                href="#">Privacidad</a></li>
+                        <li class=""><a
+                                class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors"
+                                href="#">Términos y Condiciones</a></li>
+                        <li class=""><a
+                                class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors"
+                                href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-label-md text-label-md uppercase tracking-widest text-primary mb-6">Ubicación</h5>
+                    <p class="font-body-md text-body-md text-on-surface-variant">
+                        Campus Virtual Global<br>
+                        Sede Central: Ciudad de</p>
+                    <div class="">méxico</div>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-16 pt-8 border-t border-outline/10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="font-body-md text-body-md text-on-surface-variant">© 2027 Claudio Ariza Balseca. Todos los
+                derechos reservados.</p>
+            <div class="flex gap-6">
+                <span class="font-body-md text-body-md text-on-surface-variant opacity-50">Fundada en el Siglo
+                    XXI</span>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Micro-interactions and smooth accordion
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            const btn = item.querySelector('button');
+            btn.addEventListener('click', (e) => {
+                // Ensure the event doesn't trigger twice if the div also has a listener
+                e.stopPropagation();
+            });
+        });
+
+        // Hover effect for items
+        const moduleItems = document.querySelectorAll('.group\\/item');
+        moduleItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.querySelector('.rounded-full').classList.add('scale-150');
+            });
+            item.addEventListener('mouseleave', () => {
+                item.querySelector('.rounded-full').classList.remove('scale-150');
+            });
+        });
+    </script>
+</body>
+
+</html>

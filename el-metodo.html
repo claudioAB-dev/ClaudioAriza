@@ -166,7 +166,8 @@
     <!-- Section 1: Header (TopNavBar) -->
     <nav
         class="bg-background dark:bg-background border-b border-outline-variant dark:border-outline fixed full-width top-0 z-50 w-full">
-        <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+        <div
+            class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
             <a href="academia-siglo-xxi.html" class="flex items-center gap-4">
                 <img alt="Academia Siglo XXI" class="h-12 w-auto"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDGjwzpY8Uq5TIZV0VAXh1pxk3DwzSqe2ICey6tVGP73YCOkdFea2BR7ZFL_i79JBG8mK6shO_UJcpvmNir6FFnoiTA2ywbt8alRYW2MZPwMU6K_p8MmFVbD5S36EOA4dLMkSJOxwHZl82n5dbHRfy4tDiMwDUyBq3Gnw3bhpeBNq9B8pnDW_kd_Mqr06jQe-JrNYhHJJ5fT52l072mIynqcQPB9nqYMK1TVZyo2-I01TPwj24mDrcC-7cn2jycFhCjBuqFWKI5ec_">
@@ -182,15 +183,15 @@
                 <a class="font-body-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors duration-300"
                     href="academia-siglo-xxi.html#estudiantes">Para Estudiantes</a>
                 <a class="font-body-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors duration-300"
-                    href="academia-siglo-xxi.html#temario">Temario</a>
+                    href="temario.html">Temario</a>
             </div>
-            
+
             <div class="flex items-center gap-4">
                 <button
                     class="bg-primary text-on-primary px-6 py-2 font-label-md text-label-md uppercase tracking-widest transition-slow scale-95 hover:scale-100 duration-200 hidden sm:block">
                     Inscribirse
                 </button>
-                
+
                 <!-- Hamburger Menu Toggle -->
                 <button id="menu-toggle" aria-label="Abrir menú" aria-expanded="false"
                     class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-surface-container-high transition">
@@ -202,14 +203,21 @@
         </div>
 
         <!-- Mobile dropdown menu -->
-        <div id="mobile-menu" class="hidden md:hidden overflow-hidden bg-background border-t border-outline-variant shadow-lg absolute left-0 right-0 top-full">
-            <div class="px-margin-mobile py-6 flex flex-col space-y-4 font-body-md text-label-md uppercase tracking-widest">
-                <a class="py-2 text-secondary font-bold border-b border-secondary" href="el-metodo.html" onclick="closeMobileMenu()">El Método</a>
-                <a class="py-2 text-on-surface-variant hover:text-secondary transition-colors duration-300" href="academia-siglo-xxi.html#padres" onclick="closeMobileMenu()">Para Padres</a>
-                <a class="py-2 text-on-surface-variant hover:text-secondary transition-colors duration-300" href="academia-siglo-xxi.html#estudiantes" onclick="closeMobileMenu()">Para Estudiantes</a>
-                <a class="py-2 text-on-surface-variant hover:text-secondary transition-colors duration-300" href="academia-siglo-xxi.html#temario" onclick="closeMobileMenu()">Temario</a>
+        <div id="mobile-menu"
+            class="hidden md:hidden overflow-hidden bg-background border-t border-outline-variant shadow-lg absolute left-0 right-0 top-full">
+            <div
+                class="px-margin-mobile py-6 flex flex-col space-y-4 font-body-md text-label-md uppercase tracking-widest">
+                <a class="py-2 text-secondary font-bold border-b border-secondary" href="el-metodo.html"
+                    onclick="closeMobileMenu()">El Método</a>
+                <a class="py-2 text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                    href="academia-siglo-xxi.html#padres" onclick="closeMobileMenu()">Para Padres</a>
+                <a class="py-2 text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                    href="academia-siglo-xxi.html#estudiantes" onclick="closeMobileMenu()">Para Estudiantes</a>
+                <a class="py-2 text-on-surface-variant hover:text-secondary transition-colors duration-300"
+                    href="temario.html" onclick="closeMobileMenu()">Temario</a>
                 <div class="pt-4 border-t border-outline-variant">
-                    <button class="w-full bg-primary text-on-primary py-3 font-label-md text-label-md uppercase tracking-widest">
+                    <button
+                        class="w-full bg-primary text-on-primary py-3 font-label-md text-label-md uppercase tracking-widest">
                         Inscribirse
                     </button>
                 </div>
@@ -222,7 +230,9 @@
             class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-32 pb-24 md:pt-48 md:pb-32 flex flex-col items-center text-center">
             <span class="font-label-md text-label-md text-secondary uppercase tracking-[0.2em] mb-4 fade-in">Filosofía
                 Pedagógica</span>
-            <h1 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg md:text-display-lg max-w-4xl mb-6 fade-in">Aprender a Pensar,
+            <h1
+                class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg md:text-display-lg max-w-4xl mb-6 fade-in">
+                Aprender a Pensar,
                 No a Memorizar</h1>
             <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl fade-in">
                 Transformamos las matemáticas y las humanidades en un gimnasio para la mente, donde la razón es la
@@ -233,7 +243,7 @@
         <section class="w-full relative h-[60vh] overflow-hidden fade-in">
             <img alt="Classical Columns" class="w-full h-full object-cover hero-mask"
                 data-alt="A grand architectural view of white marble fluted columns in a classical style, bathed in natural sunlight. The perspective creates a sense of depth and stability, symbolizing the enduring foundations of knowledge. The lighting is crisp, highlighting the textures of the stone against a clear blue academic sky."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnNx0VXno9TWHE0_pw9nBGPsf7FrpAj5dpqMPIwhdom0rbSwiM6xWhwbHHF4GaQqw1NkkLE9scpTcw_Jdl4Bug-RMDLgh7Ul7wFLh0sJNT9TLAhmsVsbCodAm1DykRTX46yRqLLedOJXE9ClIcqRQ1HwrH9QB6CiIsZzNZrFhTHeuQh6Fzs9JM01cgmADDoJepgki0qwfox7qGzPhyjMERCcqM6AmutrOwonCTMrXObWYpInudazTLG91NU7LZ-ZwN1QfgByp19um6" />
+                src="La_scuola_di_Atene.jpg" />
             <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-40"></div>
         </section>
         <!-- The 4 Pillars Grid -->
@@ -362,7 +372,8 @@
             </div>
         </section>
         <!-- Final CTA: The Seal -->
-        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 md:py-40 flex flex-col items-center text-center">
+        <section
+            class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 md:py-40 flex flex-col items-center text-center">
             <div class="mb-12 fade-in">
                 <img alt="Seal of Academia Siglo XXI" class="w-48 h-48 mx-auto opacity-90"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuALFncGJ0--s-SJJsesDcEfiocP6WXFUIgS-NHX4iD2GjbujIUxFIG0UbExc5zQRPQMglEtLxjIM4ggN_P-L7T926cG0Fdj1_S5D63Atj5YatMH_14L29syYF3dEBtHakvkGHBl3sSm7GX5VUSguj36gBirFMwSpPNrPLbr1GHkvC7GEqb2b4dZFLr1aooy5CK-YFv6zMLJBLQ__mfBs-kPOZqXJgtM5XLUi5mqVy2yl9HEMHXkGWbjyy8UvKNDFwny7JSQvQBJ-ER3" />
@@ -383,24 +394,57 @@
     </main>
     <!-- Footer -->
     <footer
-        class="bg-primary-container text-on-primary-container w-full py-12 px-margin-mobile md:px-margin-desktop flex flex-col items-center gap-10 border-t border-outline">
-        <div class="flex flex-col items-center gap-4">
-            <img alt="Academia Siglo XXI" class="h-16 w-auto grayscale invert"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuALFncGJ0--s-SJJsesDcEfiocP6WXFUIgS-NHX4iD2GjbujIUxFIG0UbExc5zQRPQMglEtLxjIM4ggN_P-L7T926cG0Fdj1_S5D63Atj5YatMH_14L29syYF3dEBtHakvkGHBl3sSm7GX5VUSguj36gBirFMwSpPNrPLbr1GHkvC7GEqb2b4dZFLr1aooy5CK-YFv6zMLJBLQ__mfBs-kPOZqXJgtM5XLUi5mqVy2yl9HEMHXkGWbjyy8UvKNDFwny7JSQvQBJ-ER3" />
-            <p class="font-headline-md text-on-primary-container">Academia Siglo XXI</p>
+        class="bg-surface-container dark:bg-surface-container-highest border-t border-outline-variant full-width pb-12 pt-16 md:pt-20">
+        <div
+            class="flex flex-col md:flex-row justify-between items-start px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto gap-12">
+            <div class="max-w-md">
+                <div class="font-headline-md text-headline-md text-primary mb-4">Academia Siglo XXI</div>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                    Forjando el intelecto de los líderes del futuro a través de la unión de las matemáticas clásicas y
+                    la tecnología moderna.
+                </p>
+                <div class="flex gap-4">
+                    <a class="text-primary hover:text-secondary transition-colors" href="mailto:hola@claudioariza.com">
+                        <span class="material-symbols-outlined">mail</span>
+                    </a>
+                    <a class="text-primary hover:text-secondary transition-colors" href="#">
+                        <span class="material-symbols-outlined">share</span>
+                    </a>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-16">
+                <div>
+                    <h5 class="font-label-md text-label-md uppercase tracking-widest text-primary mb-6">Navegación</h5>
+                    <ul class="space-y-4">
+                        <li class=""><a
+                                class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors"
+                                href="#">Privacidad</a></li>
+                        <li class=""><a
+                                class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors"
+                                href="#">Términos y Condiciones</a></li>
+                        <li class=""><a
+                                class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors"
+                                href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-label-md text-label-md uppercase tracking-widest text-primary mb-6">Ubicación</h5>
+                    <p class="font-body-md text-body-md text-on-surface-variant">
+                        Campus Virtual Global<br>
+                        Sede Central: Ciudad de</p>
+                    <div class="">méxico</div>
+                    <p></p>
+                </div>
+            </div>
         </div>
-        <div class="flex flex-wrap justify-center gap-8 font-label-md text-label-md">
-            <a class="text-on-primary-fixed-variant hover:underline decoration-secondary-fixed transition-all"
-                href="#">Privacidad</a>
-            <a class="text-on-primary-fixed-variant hover:underline decoration-secondary-fixed transition-all"
-                href="#">Ética Académica</a>
-            <a class="text-on-primary-fixed-variant hover:underline decoration-secondary-fixed transition-all"
-                href="#">Contacto</a>
-            <a class="text-on-primary-fixed-variant hover:underline decoration-secondary-fixed transition-all"
-                href="#">Estatutos</a>
-        </div>
-        <div class="text-center font-body-md text-on-primary-fixed-variant opacity-80 max-w-2xl">
-            <p>© 2024 Academia Siglo XXI. Excelencia en la Tradición, Innovación en la Razón.</p>
+        <div
+            class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-16 pt-8 border-t border-outline/10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="font-body-md text-body-md text-on-surface-variant">© 2027 Claudio Ariza Balseca. Todos los
+                derechos reservados.</p>
+            <div class="flex gap-6">
+                <span class="font-body-md text-body-md text-on-surface-variant opacity-50">Fundada en el Siglo
+                    XXI</span>
+            </div>
         </div>
     </footer>
     <script>
@@ -423,13 +467,13 @@
             // Mobile Menu toggle script
             const menuToggle = document.getElementById('menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
-            const lines      = menuToggle.querySelectorAll('.hamburger-line');
+            const lines = menuToggle.querySelectorAll('.hamburger-line');
 
             function openMobileMenu() {
                 mobileMenu.classList.remove('hidden');
                 menuToggle.setAttribute('aria-expanded', 'true');
                 lines[0].style.transform = 'translateY(6px) rotate(45deg)';
-                lines[1].style.opacity   = '0';
+                lines[1].style.opacity = '0';
                 lines[2].style.transform = 'translateY(-6px) rotate(-45deg)';
             }
 
@@ -437,7 +481,7 @@
                 mobileMenu.classList.add('hidden');
                 menuToggle.setAttribute('aria-expanded', 'false');
                 lines[0].style.transform = '';
-                lines[1].style.opacity   = '';
+                lines[1].style.opacity = '';
                 lines[2].style.transform = '';
             }
 
